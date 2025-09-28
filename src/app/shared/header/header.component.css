@@ -1,0 +1,108 @@
+/* Estilos generales del header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #e5e5e5;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+  gap: 1rem; /* Espacio entre el logo y la navegación si se envuelven */
+}
+
+/* Estilos para el logo y el nombre */
+.header .logo-nombre {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0; /* Evita que el logo se encoja */
+}
+
+.header .logo-nombre img {
+  height: 60px; /* Un poco más pequeño para mejor ajuste */
+  margin-right: 0.8rem;
+}
+
+.header .logo-nombre h1 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1a1919;
+}
+
+/* Estilos para la navegación */
+.header .nav {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+  justify-content: center; /* Centra los enlaces si se envuelven */
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Estilos para los enlaces de navegación */
+.header .nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #010101;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+/* Estilos para los íconos */
+.header .nav a .material-icons {
+  font-size: 1.5rem;
+}
+
+/* Animación al pasar el mouse por encima y para el enlace activo */
+.header .nav a.activo,
+.header .nav a:hover {
+  color: #e53935;
+  transform: scale(1.1);
+  text-shadow: 0 0 5px rgba(229, 57, 53, 0.7);
+}
+
+
+/* --- Media Query para hacer el header adaptable --- */
+@media (max-width: 992px) { /* Ajustado a un punto de ruptura mayor para que se adapte antes */
+  .header {
+    flex-direction: column; /* Apila el logo y la navegación verticalmente */
+    justify-content: center; /* Centra todo el contenido */
+  }
+
+  .header .nav {
+    gap: 1rem; /* Reduce el espacio entre los enlaces */
+  }
+
+  .header .nav a {
+    font-size: 0.9rem; /* Reduce ligeramente el tamaño de la fuente */
+    padding: 0.3rem 0; /* Ajusta el padding */
+  }
+
+  .header .nav a .material-icons {
+    font-size: 1.3rem; /* Iconos un poco más pequeños */
+  }
+}
+
+@media (max-width: 480px) {
+  .header .logo-nombre h1 {
+    font-size: 1.2rem; /* Reduce el título en pantallas muy pequeñas */
+  }
+
+  .header .logo-nombre img {
+    height: 50px; /* Reduce el logo */
+  }
+
+  .header .nav {
+    gap: 0.5rem; /* Aún menos espacio entre enlaces */
+  }
+
+  .header .nav a {
+    font-size: 0.8rem; /* Letra más pequeña para que quepa todo */
+  }
+}

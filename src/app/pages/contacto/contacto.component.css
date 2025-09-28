@@ -1,0 +1,260 @@
+
+/* Colores y Variables */
+:host {
+    /* Colores */
+    --primary-color: #101211; /* Verde de WhatsApp */
+    --secondary-color: #3b5998; /* Azul para el botón de llamada */
+    --accent-color: #075E54; /* Un tono más oscuro de verde */
+    --dark-color: #2c2c2c;
+    --light-gray: #f0f2f5; /* Un gris claro más moderno */
+    --text-color: #4a4a4a;
+    --border-color: #ddd;
+
+    /* Sombras */
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Contenedor Principal */
+.services-page {
+    padding: 0;
+    max-width: 100%;
+}
+
+/* 2. Sección del Formulario (Block: form-section) */
+
+.form-section {
+    padding: 5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  background: #833ab4;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+/* 3. Tarjeta del Formulario (Block: form-card) */
+.form-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    max-width: 650px; /* Un poco más grande para campos */
+    width: 100%;
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+.form-card__title {
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* 4. Estilos del Formulario (Block: quote-form) */
+.quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaciado entre fieldsets y botón */
+}
+
+/* 5. Agrupación de Campos (Elements: form__fieldset/form__legend) */
+.form__fieldset {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.form__legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0 0.5rem;
+}
+
+/* 6. Grupo de Formulario (Block: form-group) */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group__label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--dark-color);
+    font-size: 1rem;
+}
+
+.form-group__icon {
+    font-size: 1.3rem;
+    margin-right: 0.7rem;
+    color: var(--primary-color);
+}
+
+.form-group__input, 
+.form-group__select, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+.form-group__input:focus, 
+.form-group__select:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2); /* Sombra suave para el foco */
+    outline: none;
+}
+
+/* Estilo para el campo de selección (Select) */
+.form-group__select {
+    appearance: none; /* Oculta la flecha nativa */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2325D366%22%20d%3D%22M287%2069.4l-14.7-14.7c-2.5-2.5-6.6-2.5-9.1%200l-117.8%20117.8L37%2054.7c-2.5-2.5-6.6-2.5-9.1%200L13.2%2069.4c-2.5%202.5-2.5%206.6%200%209.1l133.5%20133.5c2.5%202.5%206.6%202.5%209.1%200L287%2078.5c2.5-2.5%202.5-6.6%200-9.1z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.8rem;
+    padding-right: 2.5rem; /* Espacio para la flecha */
+}
+
+/* 7. Botón de Enviar (Block: cta-button, Modifier: cta-button--whatsapp) */
+.cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: var(--shadow-light);
+}
+
+.cta-button--whatsapp {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.cta-button--whatsapp:hover {
+    background-color: var(--accent-color); /* Un verde más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.cta-button .material-icons-outlined {
+    margin-right: 0.6rem;
+}
+
+/* 8. Alternativas de Contacto (Block: contact-alternatives) */
+.contact-alternatives {
+    text-align: center;
+    padding: 1rem;
+    max-width: 650px;
+    width: 100%;
+}
+
+.contact-alternatives__text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.contact-alternatives__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 9. Botones de Contacto Alternativo (Block: contact-button, Modifiers) */
+.contact-button {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-light);
+    min-width: 180px;
+    justify-content: center;
+}
+
+.contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button .material-icons-outlined {
+    margin-right: 0.5rem;
+}
+
+/* Modifiers */
+.contact-button--whatsapp {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.contact-button--whatsapp:hover {
+    background-color: var(--accent-color);
+}
+
+.contact-button--call {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.contact-button--call:hover {
+    background-color: #2b4578; /* Tono más oscuro de azul */
+}
+
+/* Responsive: Ajustes para pantallas más pequeñas */
+@media (max-width: 480px) {
+    .form-section {
+        padding: 3rem 1rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+    }
+    
+    .form-card__title {
+        font-size: 1.8rem;
+    }
+
+    .contact-alternatives__buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .contact-button {
+        width: 100%;
+    }
+}

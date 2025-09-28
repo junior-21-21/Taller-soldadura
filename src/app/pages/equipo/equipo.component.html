@@ -1,0 +1,85 @@
+<!-- Sección Principal de Nuestro Equipo -->
+<section class="equipo-section">
+  
+  <!-- Encabezado y Filosofía del Taller -->
+  <div class="equipo-header">
+    <h2 class="titulo-principal">{{ titulo }}</h2>
+    <p class="subtitulo-principal">{{ subtitulo }}</p>
+    <p class="filosofia-parrafo">{{ filosofia }}</p>
+  </div>
+
+  <!-- Contenedor de las tarjetas de equipo -->
+  <div class="equipo-grid">
+    
+    <!-- Tarjeta de cada miembro del equipo -->
+    <div class="miembro-card" *ngFor="let miembro of equipo">
+      
+      <!-- Foto (he usado placeholders para garantizar que se vean) -->
+      <div class="miembro-foto-container">
+        <img [src]="miembro.imagen" [alt]="'Foto de ' + miembro.nombre" class="miembro-foto">
+      </div>
+      
+      <!-- Información principal -->
+      <div class="miembro-info">
+        <h3>{{ miembro.nombre }}</h3>
+        <p class="especialidad">{{ miembro.especialidad }}</p>
+        <p class="descripcion">{{ miembro.descripcion }}</p>
+      </div>
+      
+      <!-- Contacto -->
+      <div class="miembro-contacto">
+        
+        <!-- Botón de WhatsApp - ¡Nuevo! -->
+        <a [href]="getWhatsappLink(miembro.celular)" target="_blank" class="contacto-link contacto-link-whatsapp">
+          <!-- Icono de WhatsApp usando SVG para el branding -->
+          <svg style="width: 20px; height: 20px; margin-right: 0.3rem;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.54 2 2 6.54 2 12.04c0 1.76.46 3.44 1.35 4.93L2 22l6.53-1.84c1.47.8 3.14 1.23 4.51 1.23 5.5 0 9.5-4.5 9.5-9.96s-4.5-10-10-10zm-1 16.5v-3.8c0-.3-.15-.45-.3-.6l-2.6-1.3c-.25-.13-.5-.13-.7 0l-1.3.65c-.15.07-.2.15-.2.25v3.8c0 .2.1.35.3.45l2.6 1.3c.1.05.2.05.3 0l1.3-.65c.15-.07.2-.15.2-.25zm6.5 0v-3.8c0-.3-.15-.45-.3-.6l-2.6-1.3c-.25-.13-.5-.13-.7 0l-1.3.65c-.15.07-.2.15-.2.25v3.8c0 .2.1.35.3.45l2.6 1.3c.1.05.2.05.3 0l1.3-.65c.15-.07.2-.15.2-.25zM12 4c4.43 0 8 3.57 8 8s-3.57 8-8 8-8-3.57-8-8 3.57-8 8-8zM7 12.5c0 .2.1.35.3.45l3 1.5c.2.1.4.1.6 0l3-1.5c.2-.1.3-.25.3-.45V8.5c0-.2-.1-.35-.3-.45l-3-1.5c-.2-.1-.4-.1-.6 0l-3 1.5c-.2.1-.3.25-.3.45v4z"/>
+          </svg>
+          WhatsApp
+        </a>
+        
+        <a [href]="'tel:' + miembro.celular" class="contacto-link">
+          <span class="material-icons">phone</span> 
+          Llamar
+        </a>
+        <a [href]="'mailto:' + miembro.email" class="contacto-link">
+          <span class="material-icons">email</span> 
+          Correo
+        </a>
+        <!-- Enlace Opcional a LinkedIn -->
+        <a *ngIf="miembro.linkedin" [href]="miembro.linkedin" target="_blank" class="contacto-link contacto-link-social">
+          <span class="material-icons">share</span> 
+          LinkedIn
+        </a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Sección de Valores y Fortalezas -->
+  <div class="valores-section">
+    <h3 class="valores-titulo">Nuestros Pilares</h3>
+    <div class="valores-grid">
+      <div class="valor-card" *ngFor="let valor of valores">
+        <span class="material-icons valor-icon">{{ valor.icon }}</span>
+        <h4>{{ valor.titulo }}</h4>
+        <p>{{ valor.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Frase Motivadora o Lema del Taller -->
+  <div class="lema-section">
+    <p class="lema-texto">"{{ lema }}"</p>
+  </div>
+
+  <!-- Call to Action (CTA) -->
+  <div class="cta-section">
+    <p>¿Listo para comenzar tu próximo proyecto de metalurgia?</p>
+    <!-- Usa routerLink para navegar a Servicios o Contacto -->
+    <a routerLink="/servicios" class="cta-button">
+      Explora Nuestros Servicios
+    </a>
+  </div>
+
+</section>

@@ -1,0 +1,170 @@
+/* Colores base (ajustar si ya tienes un archivo de variables) */
+:host {
+  --primary-color: #e53935;
+  --dark-color: #2c2c2c;
+  --light-gray: #f4f4f4;
+  --text-color: #555;
+}
+
+.servicios-container {
+  padding: 0;
+}
+
+/* Estilos para la sección Hero de Servicios */
+.servicios-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('parallax-background.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.servicios-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.servicios-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Sección de la cuadrícula de servicios */
+.services-grid-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.services-grid-section h2 {
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.services-grid-section .subtitle {
+  color: var(--text-color);
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Sección de "Por qué elegirnos" */
+.why-us-section {
+  background-color: var(--dark-color);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.why-us-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.why-us-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.why-us-item:hover {
+  transform: scale(1.05);
+}
+
+.icon-large {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.why-us-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.why-us-item p {
+  line-height: 1.6;
+}
+
+/* Sección de llamada a la acción final */
+.final-cta-section {
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.final-cta-section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.final-cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #fff;
+  color: var(--primary-color);
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

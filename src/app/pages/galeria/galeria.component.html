@@ -1,0 +1,58 @@
+<main class="galeria-container">
+  <section class="galeria-hero-parallax">
+    <div class="hero-content-galeria">
+      <h1 class="animate-shine-text">El Metal es Nuestro Lenguaje.</h1>
+      <p style="color: #fff;">Nuestra galería es un lienzo donde la ingeniería se une a la precisión. Descubre el arte y la fuerza en cada soldadura.</p>
+    </div>
+  </section>
+  
+  <section class="filtros-section">
+    <h2>Portafolio de Proyectos</h2>
+    <div class="filtros-container">
+      <button 
+        class="filtro-button" 
+        [class.active]="filtroActivo === 'Todos'"
+        (click)="filtrarProyectos('Todos')">Todos</button>
+      <button 
+        class="filtro-button" 
+        [class.active]="filtroActivo === 'Estructuras'"
+        (click)="filtrarProyectos('Estructuras')">Estructuras</button>
+      <button 
+        class="filtro-button" 
+        [class.active]="filtroActivo === 'Herrería Artística'"
+        (click)="filtrarProyectos('Herrería Artística')">Herrería Artística</button>
+      <button 
+        class="filtro-button" 
+        [class.active]="filtroActivo === 'Mobiliario'"
+        (click)="filtrarProyectos('Mobiliario')">Mobiliario</button>
+      <button 
+        class="filtro-button" 
+        [class.active]="filtroActivo === 'Reparaciones'"
+        (click)="filtrarProyectos('Reparaciones')">Reparaciones</button>
+    </div>
+  </section>
+
+  <section class="proyectos-grid">
+    <div 
+      class="proyecto-card" 
+      *ngFor="let proyecto of proyectosFiltrados; trackBy: trackById"
+      (click)="verDetalles(proyecto)">
+      
+      <div class="proyecto-imagen-container">
+        <img [src]="proyecto.imagen" [alt]="'Imagen de ' + proyecto.titulo">
+      </div>
+      
+      <div class="proyecto-info">
+        <span class="proyecto-categoria">{{ proyecto.categoria }}</span>
+        <h3>{{ proyecto.titulo }}</h3>
+        <p>{{ proyecto.descripcion }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta-galeria-section">
+    <h2>Lleva tu visión a la realidad.</h2>
+    <p>Si te ha gustado lo que has visto, contáctanos hoy mismo y haz que tu proyecto se vuelva una realidad.</p>
+    <a routerLink="/contacto" class="cta-button-galeria">Solicita tu Cotización</a>
+  </section>
+</main>

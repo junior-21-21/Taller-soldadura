@@ -1,0 +1,169 @@
+/* Variables de color y tipografía */
+:root {
+  /** CAMBIO CLAVE: Nueva paleta de colores "Acero y Ámbar" */
+  --dark-bg: #1A202C; /* Un azul-gris muy oscuro, más profesional que el negro puro */
+  --dark-card: #2D3748; /* Un gris ligeramente más claro para las tarjetas */
+  
+  --primary-color: #F59E0B; /* Ámbar/Dorado intenso, como la chispa de soldadura */
+  --primary-color-dark: #D97706; /* Versión más oscura para hover */
+
+  --text-light: #F7FAFC; /* Blanco nítido para máxima legibilidad */
+  --text-gray: #A0AEC0; /* Gris claro para texto secundario, alto contraste */
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos generales para la página de galería */
+.galeria-container {
+  padding: 0;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: var(--dark-bg);
+  color: var(--text-light); /* El texto principal ahora es blanco nítido por defecto */
+}
+
+/* --- 1. SECCIÓN HERO CON PARALAJE --- */
+.galeria-hero-parallax {
+  background: 
+    linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
+    url('FonfoGaleria.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 8rem 2rem;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content-galeria h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(245, 235, 235, 0.5);
+  color: var(--text-light); /** CAMBIO CLAVE: Texto principal legible */
+}
+
+.animate-shine-text {
+    animation: shine 5s infinite alternate;
+}
+
+@keyframes shine {
+    from { color: var(--text-light); text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    to { color: #fff; text-shadow: 0 0 20px var(--primary-color), 0 0 8px var(--primary-color); }
+}
+
+.hero-content-galeria p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-gray); /** CAMBIO CLAVE: Texto secundario legible */
+}
+
+/* --- 2. FILTROS DE CATEGORÍA --- */
+.filtros-section {
+    padding: 3rem 2rem 1rem;
+    text-align: center;
+    background-color: var(--dark-bg);
+    border-top: 1px solid var(--dark-card);
+}
+.filtros-section h2 {
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.filtro-button {
+    background-color: var(--dark-card);
+    color: var(--text-gray); /** CAMBIO CLAVE: Texto del botón claramente visible */
+    padding: 0.7rem 1.5rem;
+    border: 2px solid var(--dark-card);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.filtro-button:hover, .filtro-button.active {
+    background-color: var(--primary-color);
+    color: #1A202C; /** CAMBIO CLAVE: Texto oscuro sobre fondo ámbar para máximo contraste */
+    font-weight: bold;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+}
+.filtro-button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* --- 3. CUADRÍCULA DE PROYECTOS --- */
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; margin: 2rem auto 5rem auto; padding: 0 2rem; max-width: 1200px;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.proyecto-card {
+  background-color: var(--dark-card);
+  border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer; border: 1px solid transparent; animation: fadeInUp 0.5s ease-out forwards;
+}
+.proyecto-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 35px rgba(245, 158, 11, 0.3); /** CAMBIO CLAVE: Sombra con el nuevo color de acento */
+  border-color: var(--primary-color);
+}
+.proyecto-card img {
+  width: 100%; height: 250px; object-fit: cover; display: block;
+  transition: transform 0.5s ease;
+  border-bottom: 5px solid var(--primary-color); 
+}
+.proyecto-card:hover img { transform: scale(1.1); }
+.proyecto-info { padding: 1.5rem; text-align: left; }
+.proyecto-categoria { display: inline-block; background-color: var(--primary-color); color: #1A202C; font-size: 0.75rem; font-weight: bold; padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 0.8rem; text-transform: uppercase; }
+.proyecto-info h3 { font-size: 1.4rem; color: var(--text-light); margin-bottom: 0.5rem; line-height: 1.2; }
+.proyecto-info p { color: var(--text-gray); line-height: 1.5; margin-bottom: 1rem; }
+.ver-detalles-link { color: var(--primary-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease, border-bottom-color 0.3s ease; border-bottom: 1px dotted var(--primary-color); display: inline-block; margin-top: 0.5rem; }
+.proyecto-card:hover .ver-detalles-link { color: #fff; border-bottom-color: #fff; }
+
+/* --- 4. SECCIÓN CTA FINAL --- */
+.final-cta-galeria-section {
+  text-align: center; padding: 4rem 2rem; background-color: #d0d3d8;
+  border-top: 5px solid var(--primary-color); margin-top: 4rem;
+}
+.final-cta-galeria-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-light); }
+.final-cta-galeria-section p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; }
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 5px 15px rgba(245, 155, 1, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(164, 3, 3, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 5px 15px rgba(245, 11, 11, 0.4); }
+}
+.cta-button-galeria {
+  display: inline-block; background-color: var(--primary-color); color: #19a001;
+  padding: 1rem 3rem; text-decoration: none; border-radius: 50px;
+  font-weight: bold; font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+.cta-button-galeria:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-3px) scale(1.05);
+  animation-play-state: paused;
+}
+
+/* Media Queries (sin cambios) */
+@media (max-width: 768px) {
+    .galeria-hero-parallax { height: 50vh; padding: 6rem 1rem; }
+    .hero-content-galeria h1 { font-size: 2.5rem; }
+    .proyectos-grid { gap: 1rem; padding: 0 1rem; }
+    .filtros-container { gap: 0.5rem; }
+}

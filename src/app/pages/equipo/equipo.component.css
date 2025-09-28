@@ -1,0 +1,278 @@
+/* --- Estilos con Degradado Suave --- */
+.equipo-section {
+  padding: 4rem 1rem;
+  text-align: center;
+  
+background: -webkit-linear-gradient(90deg, #1abc9c,#1f2c51);background: linear-gradient(90deg, #1abc9c,#1f2c51);
+  
+  /* 3. Altura mínima opcional */
+  min-height: 50vh; 
+}
+.equipo-header {
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titulo-principal {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid #e53935; 
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.subtitulo-principal {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.filosofia-parrafo {
+    font-size: 1.2rem;
+    color: #1a1919;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    font-style: italic;
+}
+
+
+/* --- Estilos del Grid Responsivo (Contenedor de Tarjetas) --- */
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2.5rem; /* Aumentado el espacio para mejor visualización */
+  max-width: 1200px;
+  margin: 0 auto 5rem auto; /* Más margen inferior para separar las secciones */
+}
+
+/* --- Estilos de la Tarjeta (miembro-card) --- */
+.miembro-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra más definida */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 1.5rem;
+}
+
+.miembro-card:hover {
+  transform: translateY(-8px); /* Efecto más pronunciado */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Imagen y Contenedor --- */
+.miembro-foto-container {
+  height: 280px; /* Altura ligeramente mayor */
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.miembro-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.miembro-card:hover .miembro-foto {
+  transform: scale(1.05); 
+}
+
+/* --- Información Principal --- */
+.miembro-info {
+  padding: 0 1.5rem;
+}
+
+.miembro-info h3 {
+  font-size: 1.8rem;
+  color: #1a1919;
+  margin-bottom: 0.4rem;
+}
+
+.especialidad {
+  color: #e53935; 
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.descripcion {
+  color: #555;
+  font-style: normal; /* Normalizado el estilo */
+  font-size: 1rem;
+}
+
+/* --- Contacto (Enlaces) --- */
+.miembro-contacto {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Reducido para más enlaces */
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.contacto-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #010101;
+  font-weight: 500;
+  padding: 5px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.contacto-link .material-icons {
+  margin-right: 0.3rem;
+  font-size: 1.2rem;
+  color: #e53935;
+}
+
+.contacto-link:hover {
+  color: #e53935;
+  background-color: rgba(229, 57, 53, 0.1);
+}
+
+.contacto-link-social {
+    color: #1a1919;
+}
+.contacto-link-social .material-icons {
+    color: #0077b5; /* Color para redes sociales */
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA WHATSAPP --- */
+.contacto-link-whatsapp {
+  color: #25D366; /* Color de texto WhatsApp */
+  font-weight: bold;
+}
+
+.contacto-link-whatsapp svg {
+  color: #25D366; /* Color del ícono SVG */
+}
+
+.contacto-link-whatsapp:hover {
+  background-color: rgba(37, 211, 102, 0.1);
+  color: #128C7E; /* Un tono más oscuro en hover */
+}
+/* ================================================= */
+/* --- Sección de Valores y Fortalezas --- */
+/* ================================================= */
+
+.valores-section {
+    padding: 3rem 1rem;
+    background-color: #ffffff; /* Fondo blanco para contraste */
+}
+
+.valores-titulo {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.valor-card {
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.valor-card:hover {
+    background-color: #fff0f0; /* Tono suave al pasar el mouse */
+    transform: scale(1.03);
+}
+
+.valor-icon {
+    font-size: 3rem;
+    color: #e53935;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.valor-card h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #1a1919;
+}
+
+.valor-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* ================================================= */
+/* --- Lema y CTA --- */
+/* ================================================= */
+
+.lema-section {
+    padding: 4rem 1rem;
+    background-color: #1a1919; /* Fondo oscuro y fuerte */
+    color: #fff;
+    margin-top: 5rem;
+}
+
+.lema-texto {
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.cta-section {
+    padding: 3rem 1rem;
+    background-color: #f4f4f4;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e53935;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #c62828;
+    transform: translateY(-2px);
+}
+
+
+/* --- Media Queries Adicionales para Responsividad --- */
+
+/* Móviles pequeños (480px y menos) */
+@media (max-width: 480px) {
+    .lema-texto {
+        font-size: 1.5rem;
+    }
+
+    .miembro-contacto {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

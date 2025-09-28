@@ -1,0 +1,75 @@
+<main class="services-page">
+  <section class="form-section">
+    <div class="form-card">
+      <h2 class="form-card__title">Solicita tu Cotización 👷‍♂️</h2>
+      <form (ngSubmit)="enviarWhatsApp()" #cotizacionForm="ngForm" class="quote-form">
+        
+        <fieldset class="form__fieldset">
+          <legend class="form__legend">Tus Datos de Contacto</legend>
+
+          <div class="form-group">
+            <label for="nombre" class="form-group__label">
+              <span class="material-icons-outlined form-group__icon" aria-hidden="true">person</span>
+              Nombre
+            </label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="cotizacion.nombre" required class="form-group__input" placeholder="Tu nombre completo">
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono" class="form-group__label">
+              <span class="material-icons-outlined form-group__icon" aria-hidden="true">phone</span>
+              Número de Teléfono
+            </label>
+            <input type="tel" id="telefono" name="telefono" [(ngModel)]="cotizacion.telefono" required class="form-group__input" placeholder="Ej: 987 654 321">
+          </div>
+
+        </fieldset>
+        
+        <fieldset class="form__fieldset">
+          <legend class="form__legend">Detalles del Servicio</legend>
+
+          <div class="form-group">
+            <label for="servicio" class="form-group__label">
+              <span class="material-icons-outlined form-group__icon" aria-hidden="true">build</span>
+              Tipo de Servicio
+            </label>
+            <select id="servicio" name="servicio" [(ngModel)]="cotizacion.servicio" required class="form-group__select">
+              <option value="" disabled selected>Selecciona un servicio</option>
+              <option value="Soldadura Industrial">Soldadura Industrial</option>
+              <option value="Estructuras Metálicas">Estructuras Metálicas</option>
+              <option value="Herrería Artística">Herrería Artística</option>
+              <option value="Mobiliario Personalizado">Mobiliario Personalizado</option>
+              <option value="Corte y Doblado de Metales">Corte y Doblado de Metales</option>
+              <option value="Mantenimiento y Reparación">Mantenimiento y Reparación</option>
+              <option value="Otro">Otro (Especificar en detalles)</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="detalles" class="form-group__label">
+              <span class="material-icons-outlined form-group__icon" aria-hidden="true">description</span>
+              Detalles de tu Solicitud
+            </label>
+            <textarea id="detalles" name="detalles" rows="4" [(ngModel)]="cotizacion.detalles" placeholder="Ej: Necesito una reja de seguridad de 2x3 metros para una ventana. Incluir medidas, materiales deseados y ubicación."></textarea>
+          </div>
+        
+        </fieldset>
+
+        <button type="submit" class="cta-button cta-button--whatsapp" [disabled]="!cotizacionForm.valid">
+          <span class="material-icons-outlined" aria-hidden="true"></span>
+          Enviar Cotización por WhatsApp
+        </button>
+      </form>
+    </div>
+
+    <div class="contact-alternatives">
+      <p class="contact-alternatives__text">¿Prefieres contactarnos directamente? ¡Estamos listos para ayudarte!</p>
+      <div class="contact-alternatives__buttons">
+        <a href="tel:+51900048717" class="contact-button contact-button--call">
+          <span class="material-icons-outlined" aria-hidden="true">phone</span>
+          Llamar Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="logo-nombre" routerLink="/">
+    <img src="assets/images/logoTallersinF.png" alt="Logo Metalúrgia Quicaño" />
+    <h1>Metalúrgia Quicaño</h1>
+  </div>
+
+  <nav class="nav">
+    <a routerLink="./" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">
+      <span class="material-icons">home</span> Inicio
+    </a>
+    <a routerLink="./galeria" routerLinkActive="activo">
+      <span class="material-icons">photo_library</span> Galería
+    </a>
+    <a routerLink="./servicios" routerLinkActive="activo">
+      <span class="material-icons">work</span> Servicios
+    </a>
+    <a routerLink="./equipo" routerLinkActive="activo">
+      <span class="material-icons">group</span> Nuestro Equipo
+    </a>
+    <a routerLink="./contacto" routerLinkActive="activo">
+      <span class="material-icons">phone</span> Contacto
+    </a>
+  </nav>
+</header>
