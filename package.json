@@ -1,14 +1,15 @@
 {
   "name": "taller-soldadura",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:taller-soldadura": "node dist/taller-soldadura/server/server.mjs"
-  },
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:taller-soldadura": "node dist/taller-soldadura/server/server.mjs",
+"deploy": "ng deploy --base-href=https://junior-21-21.github.io/Taller-soldadura/"}
+,
   "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
