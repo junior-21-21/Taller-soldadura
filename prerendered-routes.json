@@ -1,9 +1,0 @@
-{
-  "routes": {
-    "/Taller-soldadura": {},
-    "/Taller-soldadura/contacto": {},
-    "/Taller-soldadura/equipo": {},
-    "/Taller-soldadura/galeria": {},
-    "/Taller-soldadura/servicios": {}
-  }
-}
