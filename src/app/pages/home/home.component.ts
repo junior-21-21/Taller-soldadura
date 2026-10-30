@@ -183,12 +183,9 @@ export class HomeComponent implements OnDestroy {
   private initHeroWelding(): void {
     const hero = this.hero().nativeElement;
     const canvas = this.trail().nativeElement;
-    const coords = this.coords().nativeElement;
     const ctx = canvas.getContext('2d')!;
     const dots: BeadDot[] = [];
-    let pressed = false;
     let last: { x: number; y: number } | null = null;
-    let lastClient = { x: 0, y: 0 };
     let raf = 0;
     let W = 0, H = 0;
 
@@ -243,37 +240,10 @@ export class HomeComponent implements OnDestroy {
         ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = .7; ctx.stroke();
       }
       ctx.globalAlpha = 1;
-      if (pressed) this.fx.weldAt(lastClient.x, lastClient.y);
-      if (dots.length || pressed) raf = requestAnimationFrame(draw);
+      if (dots.length) raf = requestAnimationFrame(draw);
     };
     const kick = () => { if (!raf) raf = requestAnimationFrame(draw); };
 
-    const local = (e: PointerEvent) => {
-      const r = hero.getBoundingClientRect();
-      return { x: e.clientX - r.left, y: e.clientY - r.top };
-    };
-    const interactive = (e: PointerEvent) => !(e.target as HTMLElement).closest('a, button');
-    const down = (e: PointerEvent) => {
-      if (!interactive(e) || e.button > 0) return;
-      pressed = true; last = null;
-      lastClient = { x: e.clientX, y: e.clientY };
-      const p = local(e); addTo(p.x, p.y);
-      hero.classList.add('is-welding');
-      kick();
-    };
-    const move = (e: PointerEvent) => {
-      const p = local(e);
-      coords.textContent = `X ${String(Math.round(p.x)).padStart(4, '0')} · Y ${String(Math.round(p.y)).padStart(4, '0')}`;
-      if (!pressed) return;
-      lastClient = { x: e.clientX, y: e.clientY };
-      addTo(p.x, p.y);
-    };
-    const up = () => { pressed = false; last = null; hero.classList.remove('is-welding'); };
-
-    hero.addEventListener('pointerdown', down);
-    hero.addEventListener('pointermove', move);
-    addEventListener('pointerup', up);
-    hero.addEventListener('pointercancel', up);
     addEventListener('resize', resize);
 
     // Demostración: al cargar, un cordón se suelda solo bajo el título
@@ -299,10 +269,6 @@ export class HomeComponent implements OnDestroy {
     this.cleanup.push(() => {
       tween.kill();
       cancelAnimationFrame(raf);
-      hero.removeEventListener('pointerdown', down);
-      hero.removeEventListener('pointermove', move);
-      removeEventListener('pointerup', up);
-      hero.removeEventListener('pointercancel', up);
       removeEventListener('resize', resize);
     });
   }
