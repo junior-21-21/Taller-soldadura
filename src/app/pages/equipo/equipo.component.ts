@@ -69,7 +69,7 @@ export class EquipoComponent implements OnInit {
       especialidad: 'Fundador y Maestro Soldador',
       descripcion: 'Más de 20 años de experiencia en estructuras metálicas complejas, liderando la calidad.',
       // Ejemplo: usar formato de solo números, incluyendo el código de país (ej. 52 para México, 54 para Argentina)
-      celular: '521999888777', 
+      celular: '+51930929558', 
       email: 'juan.perez@metalurgia.com',
       imagen: 'https://placehold.co/300x250/17120e/ff8a00?text=J.Perez'
     },
@@ -77,7 +77,7 @@ export class EquipoComponent implements OnInit {
       nombre: 'María Gómez',
       especialidad: 'Diseño CAD/CAM y Control de Calidad',
       descripcion: 'Garantiza la precisión milimétrica, transformando planos en realidad metálica.',
-      celular: '521999666555',
+      celular: '+51930929558',
       email: 'maria.gomez@metalurgia.com',
       imagen: 'https://placehold.co/300x250/17120e/ff8a00?text=M.Gomez'
     },
@@ -85,7 +85,7 @@ export class EquipoComponent implements OnInit {
       nombre: 'Carlos Ruiz',
       especialidad: 'Técnico en Montaje e Instalación',
       descripcion: 'Experto en la logística y finalización de proyectos, cumpliendo plazos rigurosos.',
-      celular: '521999444333',
+      celular: '+51930929558',
       email: 'carlos.ruiz@metalurgia.com',
       imagen: 'https://placehold.co/300x250/17120e/ff8a00?text=C.Ruiz',
       linkedin: 'https://www.linkedin.com/in/carlosruiz'
@@ -104,7 +104,7 @@ export class EquipoComponent implements OnInit {
    * @returns El link de WhatsApp.
    */
   getWhatsappLink(celular: string): string {
-    const numeroLimpio = celular ? celular.replace(/[\s\-\(\)]/g, '') : '';
+    const numeroLimpio = celular ? celular.replace(/[\s\-\(\)+]/g, '') : '';
     // Puedes añadir un texto predefinido usando '&text=Hola, quiero cotizar un servicio.'
     return `https://wa.me/${numeroLimpio}`;
   }
