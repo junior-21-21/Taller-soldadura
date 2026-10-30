@@ -27,6 +27,6 @@ export class PuertasComponent {
 
   whatsapp(p: Puerta): string {
     const texto = `Hola Run Run, me interesa la puerta ${p.codigo} (${p.nombre}). ¿Me pueden cotizar?`;
-    return 'https://wa.me/51900048717?text=' + encodeURIComponent(texto);
+    return 'https://wa.me/51930929558?text=' + encodeURIComponent(texto);
   }
 }

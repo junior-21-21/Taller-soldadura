@@ -46,6 +46,6 @@ export class ModelosComponent {
 
   whatsapp(m: Modelo): string {
     const texto = `Hola Run Run, quiero cotizar el modelo "${m.nombre}" (${this.categoria()}). Mis medidas son: `;
-    return 'https://wa.me/51900048717?text=' + encodeURIComponent(texto);
+    return 'https://wa.me/51930929558?text=' + encodeURIComponent(texto);
   }
 }

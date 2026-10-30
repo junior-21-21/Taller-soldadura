@@ -1,0 +1,181 @@
+<main class="home">
+
+  <!-- 1. Inicio: estructura 3D que se arma y se suelda; el visitante también puede soldar -->
+  <section #hero class="hero">
+    <div #stage3d class="hero__3d" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <canvas #trail class="hero__trail" aria-hidden="true"></canvas>
+
+    <span #coords hidden></span>
+
+    <div class="hero__content">
+      <div class="hero__logo">
+        <img src="assets/img/logo-placa.webp" alt="Run Run Estructuras Metálicas" width="620" height="215" fetchpriority="high" decoding="async" />
+        <span #heroArc class="hero__arc" aria-hidden="true"></span>
+      </div>
+      <h1 class="hero__title"><span class="ln"><span>Soldamos</span></span><br><span class="ln"><span class="hot">el futuro</span></span><br><span class="ln"><span>pieza por pieza</span></span></h1>
+      <span #demoLine class="hero__demo-line" aria-hidden="true"></span>
+      <p class="hero__sub">Puertas, ventanas, mesas, techos y estructuras de acero, hechas a mano con soldadura por electrodo en Ayacucho.</p>
+      <div class="hero__cta">
+        <a class="btn btn--fire" routerLink="/contacto">Pide tu cotización gratis</a>
+        <a class="btn btn--ghost" href="https://wa.me/51930929558" target="_blank" rel="noopener">WhatsApp 930 929 558</a>
+      </div>
+      <span #status3d hidden></span>
+    </div>
+
+    <button class="hero__scroll" type="button" (click)="irAlTaller()" aria-label="Bajar a ver nuestros trabajos">
+      <i aria-hidden="true"></i>
+    </button>
+  </section>
+
+  <!-- Cinta en movimiento -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      @for (round of [0, 1]; track round) {
+        <span>Soldadura</span><i></i><span>Estructuras</span><i></i><span>Herrería</span><i></i><span>Techos</span><i></i><span>Mobiliario</span><i></i>
+      }
+    </div>
+  </div>
+
+  <!-- Datos rápidos -->
+  <section class="stats">
+    <div class="stat reveal"><b>10+</b><span class="hud">años de experiencia</span></div>
+    <div class="stat reveal"><b>3</b><span class="hud">tipos de soldadura</span></div>
+    <div class="stat reveal"><b>100%</b><span class="hud">hecho a tu medida</span></div>
+    <div class="stat reveal"><b>Gratis</b><span class="hud">tu cotización</span></div>
+  </section>
+
+  <!-- 2. Armado con soldadura al hacer scroll -->
+  <section class="intro" id="taller">
+    <p class="eyebrow">Soldadura por electrodo · SMAW</p>
+    <h2 class="title-hot">Del fierro suelto a la obra terminada</h2>
+    <p class="lead">Cada pieza se corta, se presenta y se suelda a mano. Sigue bajando: delante de ti armamos una puerta, una ventana con reja, una mesa y un techo.</p>
+  </section>
+
+  @for (e of escenas; track e.scene) {
+    <app-build-scene [scene]="e.scene" [num]="e.num" [heading]="e.heading" [text]="e.text"
+      [steps]="e.steps" [label]="e.label" [flip]="!!e.flip"></app-build-scene>
+  }
+
+  <!-- Catálogo de modelos modernos -->
+  <app-modelos></app-modelos>
+
+  <!-- 3. Servicios en mosaico -->
+  <section class="section">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Lo que hacemos</p>
+        <h2 class="title-hot">Servicios</h2>
+      </div>
+      <a class="btn btn--ghost btn--sm" routerLink="/servicios">Ver detalle</a>
+    </div>
+    <div class="bento">
+      @for (s of servicios; track s.titulo; let i = $index) {
+        <article class="bento__card reveal" [class.bento__card--big]="i === 0" [style.transition-delay.ms]="i * 60">
+          <span class="hud bento__tag">{{ s.tag }}</span>
+          <svg class="bento__icon" viewBox="0 0 48 48" aria-hidden="true"><path [attr.d]="s.icon" /></svg>
+          <h3>{{ s.titulo }}</h3>
+          <p>{{ s.texto }}</p>
+          @if (i === 0) {
+            <svg class="bento__plan" viewBox="0 0 400 150" aria-hidden="true">
+              <path d="M10 140 L200 20 L390 140 Z M10 140 H390 M200 20 V140 M105 80 V140 M295 80 V140 M105 80 L200 140 M295 80 L200 140" />
+              <path class="dim" d="M10 148 H390 M10 144 V152 M390 144 V152" />
+            </svg>
+          }
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- 4. Proceso -->
+  <section class="section process">
+    <p class="eyebrow">Cómo trabajamos</p>
+    <h2 class="title-hot">De tu idea a la obra, en 4 pasos</h2>
+    <div class="process__wrap">
+    <span class="process__rail" aria-hidden="true"><i #rail></i></span>
+    <ol class="process__list">
+      @for (p of pasos; track p.titulo; let i = $index) {
+        <li class="reveal">
+          <span class="process__num hud">Paso 0{{ i + 1 }}</span>
+          <h3>{{ p.titulo }}</h3>
+          <p>{{ p.texto }}</p>
+        </li>
+      }
+    </ol>
+    </div>
+  </section>
+
+  <!-- 5. Quiénes somos -->
+  <section class="section about">
+    <div class="about__img reveal">
+      <img src="assets/img/Foto1home.webp" width="626" height="373" alt="Soldador trabajando en el taller Run Run" loading="lazy" />
+      <span class="hud about__label">Taller Run Run · Ayacucho</span>
+    </div>
+    <div>
+      <p class="eyebrow">Quiénes somos</p>
+      <h2 class="title-hot">Forjamos soluciones duraderas</h2>
+      <p class="muted">Con más de 10 años de experiencia, en Run Run nos dedicamos a la soldadura industrial, estructural y artística. Nuestro compromiso es firme: calidad, seguridad y precisión en cada trabajo.</p>
+      <ul class="pillars">
+        <li><b>Seguridad primero</b> en cada proceso y montaje.</li>
+        <li><b>Calidad garantizada</b> con controles en cada etapa.</li>
+        <li><b>Cumplimos plazos</b> y te mantenemos informado.</li>
+      </ul>
+      <a class="btn btn--ghost" routerLink="/equipo">Conoce a nuestro equipo</a>
+    </div>
+  </section>
+
+  <!-- 6. Testimonios -->
+  <section class="section testimonials" aria-labelledby="t-clientes">
+    <p class="eyebrow">Clientes satisfechos</p>
+    <h2 id="t-clientes" class="title-hot">Nuestro trabajo habla por nosotros</h2>
+    <div class="marquee">
+      <div class="marquee__track">
+        @for (round of [0, 1]; track round) {
+          @for (t of testimonios; track $index) {
+            <figure class="quote" [attr.aria-hidden]="round === 1 ? 'true' : null">
+              <blockquote>“{{ t.texto }}”</blockquote>
+              <figcaption><img [src]="t.foto" alt="" width="40" height="40" loading="lazy" /> {{ t.autor }}</figcaption>
+            </figure>
+          }
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Ubicación -->
+  <section class="section location">
+    <div>
+      <p class="eyebrow">Visítanos</p>
+      <h2 class="title-hot">¿Dónde encontrarnos?</h2>
+      <p class="muted">Visítanos en el taller para conversar tu proyecto en persona. ¡Estamos listos para recibirte!</p>
+      <p class="address">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Ayacucho, Perú
+      </p>
+      <p class="muted tels">Llámanos: <a href="tel:+51930929558">930 929 558</a> · <a href="tel:+51994988519">994 988 519</a> · <a href="tel:+51900048717">900 048 717</a></p>
+      <a class="btn btn--ghost" href="tel:+51930929558">Llamar al 930 929 558</a>
+      <a class="btn btn--fire" href="https://www.google.com/maps/dir/?api=1&destination=-13.174752,-74.2166704" target="_blank" rel="noopener">Cómo llegar</a>
+    </div>
+    <div class="map reveal">
+      @if (verMapa) {
+        <iframe title="Ubicación del taller Run Run en Google Maps" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://maps.google.com/maps?q=-13.174752,-74.2166704&z=18&output=embed"></iframe>
+      } @else {
+        <!-- El mapa solo se descarga si el visitante lo pide: ahorra ~1 MB de datos -->
+        <button type="button" class="map__cargar" (click)="verMapa = true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Ver mapa del taller
+        </button>
+      }
+    </div>
+  </section>
+
+  <!-- 8. Llamado final -->
+  <section class="final-cta">
+    <div class="final-cta__box">
+      <h2 class="title-hot">¿Listo para forjar tu idea en metal?</h2>
+      <p class="muted">Contáctanos hoy para obtener una cotización gratuita y sin compromiso.</p>
+      <a class="btn btn--fire" routerLink="/contacto">Solicita tu cotización</a>
+    </div>
+  </section>
+</main>
