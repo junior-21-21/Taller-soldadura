@@ -17,7 +17,7 @@ cotizacion = {
   };
 
   enviarWhatsApp() {
-    const numeroWhatsApp = '51900048717'; // Reemplaza con tu número de WhatsApp
+    const numeroWhatsApp = '51930929558'; // Reemplaza con tu número de WhatsApp
     
     const mensaje = `¡Hola! He llenado el formulario de su sitio web para solicitar una cotización.
 

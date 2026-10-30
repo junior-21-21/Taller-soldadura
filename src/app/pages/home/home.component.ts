@@ -71,7 +71,7 @@ export class HomeComponent implements OnDestroy {
 
   servicios: Servicio[] = [
     { tag: 'Estructural', icon: 'M4 40 L24 10 L44 40 Z M24 10v30M14 25l10 15M34 25L24 40', titulo: 'Estructuras metálicas', texto: 'Diseño, fabricación y montaje de estructuras de acero para viviendas, almacenes y obras, con resistencia y seguridad garantizadas.' },
-    { tag: 'SMAW · MIG · TIG', icon: 'M8 40 L26 22 M24 16 l8 8 l-4 4 l-8 -8 z M36 4v3M36 17v3M28 12h3M41 12h3', titulo: 'Soldadura industrial', texto: 'Procesos por electrodo, MIG y TIG para trabajos de gran escala.' },
+    { tag: 'Electrodo · arco', icon: 'M8 40 L26 22 M24 16 l8 8 l-4 4 l-8 -8 z M36 4v3M36 17v3M28 12h3M41 12h3', titulo: 'Soldadura industrial', texto: 'Soldadura por arco con electrodo para estructuras y trabajos de gran escala.' },
     { tag: 'Seguridad', icon: 'M10 4h28v40H10z M10 22h28M17 4v18M24 4v18M31 4v18', titulo: 'Herrería y portones', texto: 'Puertas, rejas, barandas y escaleras con diseño propio.' },
     { tag: 'A medida', icon: 'M6 20h36M10 20v20M38 20v20M6 14h36M18 14c0-6 12-6 12 0', titulo: 'Mobiliario personalizado', texto: 'Muebles de metal con madera, vidrio u otros materiales.' },
     { tag: 'Precisión', icon: 'M6 34h24l12 -12M6 26h20M34 8l6 6M30 12l6 6', titulo: 'Corte y doblado', texto: 'Planchas y perfiles cortados y doblados con exactitud.' },

@@ -42,7 +42,7 @@ export class EquipoComponent implements OnInit {
     {
       icon: 'handyman',
       titulo: 'Experiencia Técnica',
-      descripcion: 'Más de 10 años de dominio en técnicas de soldadura avanzada.',
+      descripcion: 'Más de 10 años de dominio en soldadura con electrodo.',
     },
     {
       icon: 'psychology',
