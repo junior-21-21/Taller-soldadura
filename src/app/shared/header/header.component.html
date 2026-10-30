@@ -1,24 +1,17 @@
-<header class="header">
-  <div class="logo-nombre" routerLink="/">
-    <img src="assets/images/logoTallersinF.png" alt="Logo Metalúrgia Quicaño" />
-    <h1>Metalúrgia Quicaño</h1>
-  </div>
+<header class="header" [class.is-open]="menuOpen">
+  <a class="brand" routerLink="/" (click)="menuOpen = false" aria-label="Run Run, inicio">
+    <img src="assets/img/logo-placa-sm.webp" alt="Run Run Estructuras metálicas" width="260" height="90" />
+  </a>
 
-  <nav class="nav">
-    <a routerLink="./" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">
-      <span class="material-icons">home</span> Inicio
-    </a>
-    <a routerLink="./galeria" routerLinkActive="activo">
-      <span class="material-icons">photo_library</span> Galería
-    </a>
-    <a routerLink="./servicios" routerLinkActive="activo">
-      <span class="material-icons">work</span> Servicios
-    </a>
-    <a routerLink="./equipo" routerLinkActive="activo">
-      <span class="material-icons">group</span> Nuestro Equipo
-    </a>
-    <a routerLink="./contacto" routerLinkActive="activo">
-      <span class="material-icons">phone</span> Contacto
-    </a>
+  <button class="toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="menu" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav id="menu" class="nav">
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen = false">Inicio</a>
+    <a routerLink="/galeria" routerLinkActive="activo" (click)="menuOpen = false">Galería</a>
+    <a routerLink="/servicios" routerLinkActive="activo" (click)="menuOpen = false">Servicios</a>
+    <a routerLink="/equipo" routerLinkActive="activo" (click)="menuOpen = false">Nuestro equipo</a>
+    <a routerLink="/contacto" class="btn btn--fire btn--sm" (click)="menuOpen = false">Cotizar</a>
   </nav>
 </header>

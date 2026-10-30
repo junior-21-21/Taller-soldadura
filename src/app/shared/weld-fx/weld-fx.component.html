@@ -1,0 +1,17 @@
+<canvas #canvas class="sparks" aria-hidden="true"></canvas>
+<div #flash class="flash" aria-hidden="true"></div>
+<div #electrode class="electrode" aria-hidden="true">
+  <svg viewBox="0 0 220 60" width="220" height="60">
+    <defs>
+      <linearGradient id="rodGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e9ebee"/><stop offset=".5" stop-color="#9aa0a8"/><stop offset="1" stop-color="#5b6068"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="27" width="120" height="6" rx="2" fill="url(#rodGrad)"/>
+    <rect x="0" y="27.5" width="7" height="5" rx="2" fill="#ffefb0"/>
+    <path d="M118 22 h22 l14 -6 h56 a8 8 0 0 1 0 28 h-56 l-14 -6 h-22 Z" fill="#1d1d21" stroke="#3a3a40"/>
+    <path d="M160 18 h46" stroke="#ff7a00" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</div>
+<div #arc class="arc" aria-hidden="true"></div>
+<div class="scroll-rod" aria-hidden="true"><span #rod class="scroll-rod__fill"></span></div>

@@ -1,0 +1,11 @@
+<div class="intro" [class.fuera]="saltada()" (click)="saltada.set(true)" aria-hidden="true">
+  <div class="intro__logo">
+    <img src="assets/img/logo-placa.webp" alt="" width="620" height="215" fetchpriority="high" />
+    <span class="intro__arco">
+      @for (c of chispas; track $index) {
+        <i [style.--dx.px]="c.dx" [style.--dy.px]="c.dy" [style.--d.s]="c.d"></i>
+      }
+    </span>
+  </div>
+  <p class="intro__txt">Taller de soldadura · Ayacucho</p>
+</div>

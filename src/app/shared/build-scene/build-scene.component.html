@@ -1,0 +1,17 @@
+<section #section class="build" [attr.aria-labelledby]="'t-' + scene()">
+  <div class="build__inner">
+    <div class="build__text">
+      <p class="build__num">{{ num() }}</p>
+      <h2 [id]="'t-' + scene()">{{ heading() }}</h2>
+      <p class="build__desc">{{ text() }}</p>
+      <ol class="steps">
+        @for (s of steps(); track s) {
+          <li>{{ s }}</li>
+        }
+      </ol>
+    </div>
+    <div class="stage-wrap">
+      <svg #stage class="stage" viewBox="0 0 800 620" role="img" [attr.aria-label]="label()"></svg>
+    </div>
+  </div>
+</section>

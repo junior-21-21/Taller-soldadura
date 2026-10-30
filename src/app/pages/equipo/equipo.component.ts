@@ -42,7 +42,7 @@ export class EquipoComponent implements OnInit {
     {
       icon: 'handyman',
       titulo: 'Experiencia Técnica',
-      descripcion: 'Más de dos décadas de dominio en técnicas de soldadura avanzada.',
+      descripcion: 'Más de 10 años de dominio en técnicas de soldadura avanzada.',
     },
     {
       icon: 'psychology',
@@ -71,7 +71,7 @@ export class EquipoComponent implements OnInit {
       // Ejemplo: usar formato de solo números, incluyendo el código de país (ej. 52 para México, 54 para Argentina)
       celular: '521999888777', 
       email: 'juan.perez@metalurgia.com',
-      imagen: 'https://via.placeholder.com/300x250/333333/FFFFFF?text=J.Perez'
+      imagen: 'https://placehold.co/300x250/17120e/ff8a00?text=J.Perez'
     },
     {
       nombre: 'María Gómez',
@@ -79,7 +79,7 @@ export class EquipoComponent implements OnInit {
       descripcion: 'Garantiza la precisión milimétrica, transformando planos en realidad metálica.',
       celular: '521999666555',
       email: 'maria.gomez@metalurgia.com',
-      imagen: 'https://via.placeholder.com/300x250/E53935/FFFFFF?text=M.Gomez'
+      imagen: 'https://placehold.co/300x250/17120e/ff8a00?text=M.Gomez'
     },
     {
       nombre: 'Carlos Ruiz',
@@ -87,7 +87,7 @@ export class EquipoComponent implements OnInit {
       descripcion: 'Experto en la logística y finalización de proyectos, cumpliendo plazos rigurosos.',
       celular: '521999444333',
       email: 'carlos.ruiz@metalurgia.com',
-      imagen: 'https://via.placeholder.com/300x250/1A1919/FFFFFF?text=C.Ruiz',
+      imagen: 'https://placehold.co/300x250/17120e/ff8a00?text=C.Ruiz',
       linkedin: 'https://www.linkedin.com/in/carlosruiz'
     }
   ];

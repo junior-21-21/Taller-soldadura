@@ -28,6 +28,9 @@
   "src/assets"
 ]
 ,
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -40,13 +43,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "700kB",
                   "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "12kB",
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all"
@@ -99,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d53df204-b214-4fbc-9718-876c2af5ef33"
   }
 }

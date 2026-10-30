@@ -1,0 +1,48 @@
+:host { display: block; position: relative; }
+.build { position: relative; }
+.build__inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(260px, 1fr) 1.6fr; align-items: center; gap: clamp(16px, 4vw, 56px);
+  padding: 56px clamp(16px, 4vw, 48px);
+}
+:host(.flip) .build__inner { grid-template-columns: 1.6fr minmax(260px, 1fr); }
+:host(.flip) .build__text { order: 2; }
+
+.build__num { font: 700 4.5rem/1 var(--font-display); color: transparent; -webkit-text-stroke: 1.5px rgba(255, 138, 0, .55); margin: 0; }
+.build__text h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); text-transform: uppercase; margin: .2em 0 .5em; }
+.build__desc { color: var(--muted); max-width: 46ch; }
+
+.steps { list-style: none; padding: 0; margin: 1.5rem 0 0; counter-reset: s; }
+.steps li {
+  counter-increment: s; position: relative; padding: .55rem 0 .55rem 2.6rem;
+  color: #9a9087; font-weight: 500; transition: color .3s cubic-bezier(.23, 1, .32, 1);
+}
+.steps li::before {
+  content: counter(s); position: absolute; left: 0; top: 50%; translate: 0 -50%;
+  width: 1.8rem; height: 1.8rem; border-radius: 50%; display: grid; place-items: center;
+  font: 600 .85rem/1 var(--font-display); border: 2px solid #ddd3c9;
+  transition: background-color .3s, border-color .3s, box-shadow .3s, color .3s;
+  transition-timing-function: cubic-bezier(.23, 1, .32, 1);
+}
+.steps li.done { color: var(--muted); }
+.steps li.done::before { content: "✓"; border-color: #f3c7a0; color: var(--fire-2); }
+.steps li.active { color: var(--text); }
+.steps li.active::before { border-color: var(--fire); background: var(--fire); color: #fff; box-shadow: 0 0 16px rgba(255, 122, 0, .7); }
+
+.stage-wrap {
+  position: relative; padding: 20px; border-radius: 22px;
+  background: radial-gradient(70% 60% at 50% 55%, rgba(255, 160, 80, .12), transparent 70%), linear-gradient(180deg, #faf7f3, #f1ebe4);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.stage { width: 100%; height: auto; max-height: 58svh; display: block; overflow: visible; }
+
+@media (max-width: 860px) {
+  .build__inner, :host(.flip) .build__inner { grid-template-columns: 1fr; gap: 16px; padding-block: 40px; }
+  :host(.flip) .build__text { order: 0; }
+  .build__num { font-size: 2.6rem; }
+  .build__text h2 { font-size: 1.9rem; }
+  .steps { display: none; }
+  .stage { max-height: 52svh; }
+  .stage-wrap { padding: 10px; }
+}

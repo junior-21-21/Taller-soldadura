@@ -3,7 +3,8 @@
   
   <!-- Encabezado y Filosofía del Taller -->
   <div class="equipo-header">
-    <h2 class="titulo-principal">{{ titulo }}</h2>
+    <p class="eyebrow">Nuestro equipo</p>
+    <h2 class="titulo-principal title-hot">{{ titulo }}</h2>
     <p class="subtitulo-principal">{{ subtitulo }}</p>
     <p class="filosofia-parrafo">{{ filosofia }}</p>
   </div>
@@ -12,7 +13,7 @@
   <div class="equipo-grid">
     
     <!-- Tarjeta de cada miembro del equipo -->
-    <div class="miembro-card" *ngFor="let miembro of equipo">
+    <div class="miembro-card card" *ngFor="let miembro of equipo">
       
       <!-- Foto (he usado placeholders para garantizar que se vean) -->
       <div class="miembro-foto-container">
@@ -58,9 +59,9 @@
 
   <!-- Sección de Valores y Fortalezas -->
   <div class="valores-section">
-    <h3 class="valores-titulo">Nuestros Pilares</h3>
+    <h3 class="valores-titulo title-hot">Nuestros pilares</h3>
     <div class="valores-grid">
-      <div class="valor-card" *ngFor="let valor of valores">
+      <div class="valor-card card" *ngFor="let valor of valores">
         <span class="material-icons valor-icon">{{ valor.icon }}</span>
         <h4>{{ valor.titulo }}</h4>
         <p>{{ valor.descripcion }}</p>
@@ -77,7 +78,7 @@
   <div class="cta-section">
     <p>¿Listo para comenzar tu próximo proyecto de metalurgia?</p>
     <!-- Usa routerLink para navegar a Servicios o Contacto -->
-    <a routerLink="/servicios" class="cta-button">
+    <a routerLink="/servicios" class="btn btn--fire">
       Explora Nuestros Servicios
     </a>
   </div>

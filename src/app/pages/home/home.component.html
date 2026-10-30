@@ -1,178 +1,171 @@
-<main class="home-container">
-  
-  <!-- 1. SECCIÓN HERO: Alto Impacto -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <!-- Frase Fuerte -->
-      <h1 class="animate-shine">El Metal es Nuestro Lenguaje.</h1>
-      <p>Soldamos **confianza**, pieza por pieza. Fusionamos la tradición artesanal con la innovación tecnológica para dar forma a tus proyectos más audaces.</p>
-      <a routerLink="/servicios" class="cta-button">
-        <span class="material-icons-sharp">build</span>
-        Conoce Nuestros Servicios
-      </a>
+<main class="home">
+
+  <!-- 1. Inicio: estructura 3D que se arma y se suelda; el visitante también puede soldar -->
+  <section #hero class="hero">
+    <div #stage3d class="hero__3d" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <canvas #trail class="hero__trail" aria-hidden="true"></canvas>
+
+    <span #coords hidden></span>
+
+    <div class="hero__content">
+      <div class="hero__logo">
+        <img src="assets/img/logo-placa.webp" alt="Run Run Estructuras Metálicas" width="620" height="215" fetchpriority="high" decoding="async" />
+        <span #heroArc class="hero__arc" aria-hidden="true"></span>
+      </div>
+      <h1 class="hero__title"><span class="ln"><span>Soldamos</span></span><br><span class="ln"><span class="hot">el futuro</span></span><br><span class="ln"><span>pieza por pieza</span></span></h1>
+      <span #demoLine class="hero__demo-line" aria-hidden="true"></span>
+      <p class="hero__sub">Puertas, ventanas, mesas, techos y estructuras de acero, hechas a mano con soldadura por electrodo en Ayacucho.</p>
+      <div class="hero__cta">
+        <a class="btn btn--fire" routerLink="/contacto">Pide tu cotización gratis</a>
+        <a class="btn btn--ghost" href="https://wa.me/51900048717" target="_blank" rel="noopener">WhatsApp 900 048 717</a>
+      </div>
+      <span #status3d hidden></span>
+    </div>
+
+    <button class="hero__scroll" type="button" (click)="irAlTaller()" aria-label="Bajar a ver nuestros trabajos">
+      <i aria-hidden="true"></i>
+    </button>
+  </section>
+
+  <!-- Cinta en movimiento -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      @for (round of [0, 1]; track round) {
+        <span>Soldadura</span><i></i><span>Estructuras</span><i></i><span>Herrería</span><i></i><span>Techos</span><i></i><span>Mobiliario</span><i></i>
+      }
+    </div>
+  </div>
+
+  <!-- Datos rápidos -->
+  <section class="stats">
+    <div class="stat reveal"><b>10+</b><span class="hud">años de experiencia</span></div>
+    <div class="stat reveal"><b>3</b><span class="hud">tipos de soldadura</span></div>
+    <div class="stat reveal"><b>100%</b><span class="hud">hecho a tu medida</span></div>
+    <div class="stat reveal"><b>Gratis</b><span class="hud">tu cotización</span></div>
+  </section>
+
+  <!-- 2. Armado con soldadura al hacer scroll -->
+  <section class="intro" id="taller">
+    <p class="eyebrow">Soldadura por electrodo · SMAW</p>
+    <h2 class="title-hot">Del fierro suelto a la obra terminada</h2>
+    <p class="lead">Cada pieza se corta, se presenta y se suelda a mano. Sigue bajando: delante de ti armamos una puerta, una ventana con reja, una mesa y un techo.</p>
+  </section>
+
+  @for (e of escenas; track e.scene) {
+    <app-build-scene [scene]="e.scene" [num]="e.num" [heading]="e.heading" [text]="e.text"
+      [steps]="e.steps" [label]="e.label" [flip]="!!e.flip"></app-build-scene>
+  }
+
+  <!-- Catálogo de modelos modernos -->
+  <app-modelos></app-modelos>
+
+  <!-- 3. Servicios en mosaico -->
+  <section class="section">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Lo que hacemos</p>
+        <h2 class="title-hot">Servicios</h2>
+      </div>
+      <a class="btn btn--ghost btn--sm" routerLink="/servicios">Ver detalle</a>
+    </div>
+    <div class="bento">
+      @for (s of servicios; track s.titulo; let i = $index) {
+        <article class="bento__card reveal" [class.bento__card--big]="i === 0" [style.transition-delay.ms]="i * 60">
+          <span class="hud bento__tag">{{ s.tag }}</span>
+          <svg class="bento__icon" viewBox="0 0 48 48" aria-hidden="true"><path [attr.d]="s.icon" /></svg>
+          <h3>{{ s.titulo }}</h3>
+          <p>{{ s.texto }}</p>
+          @if (i === 0) {
+            <svg class="bento__plan" viewBox="0 0 400 150" aria-hidden="true">
+              <path d="M10 140 L200 20 L390 140 Z M10 140 H390 M200 20 V140 M105 80 V140 M295 80 V140 M105 80 L200 140 M295 80 L200 140" />
+              <path class="dim" d="M10 148 H390 M10 144 V152 M390 144 V152" />
+            </svg>
+          }
+        </article>
+      }
     </div>
   </section>
 
-  <!-- 2. SECCIÓN QUIÉNES SOMOS: Presentación Breve -->
-  <section class="about-us-section">
-    <div class="about-content">
-      <div class="about-text">
-        <h2>Forjamos Soluciones Duraderas</h2>
-        <p>Con más de **10 años de experiencia**, en Metalurgia Quicaño nos dedicamos a la soldadura industrial, estructural y artística. Nuestro compromiso es inquebrantable: **calidad, seguridad y precisión** en cada trabajo.</p>
-        <p>Utilizamos tecnología de punta y la mejor mano de obra para garantizar resultados que no solo cumplen, sino que superan las expectativas más exigentes.</p>
-        <a routerLink="/equipo" class="learn-more-button">
-          <span class="material-icons-sharp">group</span>
-          Conoce a Nuestro Equipo
-        </a>
-      </div>
-      <!-- Imagen del Taller o Equipo -->
-      <div class="about-image-container">
-        <!-- Placeholder para una imagen impactante del taller -->
-        <img src="assets/img/Foto1home.jpg" alt="Taller de soldadura industrial, Metalurgia Quicaño" class="about-image">
+  <!-- 4. Proceso -->
+  <section class="section process">
+    <p class="eyebrow">Cómo trabajamos</p>
+    <h2 class="title-hot">De tu idea a la obra, en 4 pasos</h2>
+    <div class="process__wrap">
+    <span class="process__rail" aria-hidden="true"><i #rail></i></span>
+    <ol class="process__list">
+      @for (p of pasos; track p.titulo; let i = $index) {
+        <li class="reveal">
+          <span class="process__num hud">Paso 0{{ i + 1 }}</span>
+          <h3>{{ p.titulo }}</h3>
+          <p>{{ p.texto }}</p>
+        </li>
+      }
+    </ol>
+    </div>
+  </section>
+
+  <!-- 5. Quiénes somos -->
+  <section class="section about">
+    <div class="about__img reveal">
+      <img src="assets/img/Foto1home.webp" width="626" height="373" alt="Soldador trabajando en el taller Run Run" loading="lazy" />
+      <span class="hud about__label">Taller Run Run · Ayacucho</span>
+    </div>
+    <div>
+      <p class="eyebrow">Quiénes somos</p>
+      <h2 class="title-hot">Forjamos soluciones duraderas</h2>
+      <p class="muted">Con más de 10 años de experiencia, en Run Run nos dedicamos a la soldadura industrial, estructural y artística. Nuestro compromiso es firme: calidad, seguridad y precisión en cada trabajo.</p>
+      <ul class="pillars">
+        <li><b>Seguridad primero</b> en cada proceso y montaje.</li>
+        <li><b>Calidad garantizada</b> con controles en cada etapa.</li>
+        <li><b>Cumplimos plazos</b> y te mantenemos informado.</li>
+      </ul>
+      <a class="btn btn--ghost" routerLink="/equipo">Conoce a nuestro equipo</a>
+    </div>
+  </section>
+
+  <!-- 6. Testimonios -->
+  <section class="section testimonials" aria-labelledby="t-clientes">
+    <p class="eyebrow">Clientes satisfechos</p>
+    <h2 id="t-clientes" class="title-hot">Nuestro trabajo habla por nosotros</h2>
+    <div class="marquee">
+      <div class="marquee__track">
+        @for (round of [0, 1]; track round) {
+          @for (t of testimonios; track $index) {
+            <figure class="quote" [attr.aria-hidden]="round === 1 ? 'true' : null">
+              <blockquote>“{{ t.texto }}”</blockquote>
+              <figcaption><img [src]="t.foto" alt="" width="40" height="40" loading="lazy" /> {{ t.autor }}</figcaption>
+            </figure>
+          }
+        }
       </div>
     </div>
   </section>
 
-  <!-- 3. SECCIÓN SERVICIOS PRINCIPALES: Destacados con Íconos -->
-  <section class="core-services-section">
-    <h2>Nuestras Especialidades</h2>
-    <p class="subtitle">Dominamos las técnicas más avanzadas para garantizar la máxima resistencia y acabado.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="material-icons-sharp service-icon">tungsten</span>
-        <h3>Soldadura Experta</h3>
-        <p>Manejo certificado de procesos **MIG, TIG y SMAW** (Arco Manual) para cualquier tipo de metal.</p>
-      </div>
-      <div class="service-card">
-        <span class="material-icons-sharp service-icon">foundation</span>
-        <h3>Estructuras Metálicas</h3>
-        <p>Diseño, fabricación y montaje de estructuras robustas para la construcción e industria.</p>
-      </div>
-      <div class="service-card">
-        <span class="material-icons-sharp service-icon">fence</span>
-        <h3>Herrería y Portones</h3>
-        <p>Creación de rejas, barandas y puertas de seguridad con diseños personalizados y artísticos.</p>
-      </div>
-      <div class="service-card">
-        <span class="material-icons-sharp service-icon">handyman</span>
-        <h3>Reparación y Mantenimiento</h3>
-        <p>Servicio rápido de reparación y mantenimiento preventivo para maquinaria y componentes.</p>
-      </div>
+  <!-- 7. Ubicación -->
+  <section class="section location">
+    <div>
+      <p class="eyebrow">Visítanos</p>
+      <h2 class="title-hot">¿Dónde encontrarnos?</h2>
+      <p class="muted">Visítanos en el taller para conversar tu proyecto en persona. ¡Estamos listos para recibirte!</p>
+      <p class="address">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Av. Los Artesanos 123, Zona Industrial, Ayacucho, Perú
+      </p>
+      <a class="btn btn--ghost" href="tel:+51900048717">Llamar al 900 048 717</a>
+    </div>
+    <div class="map reveal">
+      <iframe title="Ubicación del taller Run Run en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8317917762329!2d-74.2161210852416!3d-13.17456662626027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9112870057f1a647%3A0xacf12f1dc7c4503!2sImportadora%20R%26E%20AYACUCHO!5e1!3m2!1ses!2spe!4v1759038291843!5m2!1ses!2spe"></iframe>
     </div>
   </section>
 
-  <!-- 4. SECCIÓN GALERÍA DE PROYECTOS -->
-  <section class="featured-works-section">
-    <h2>Nuestro Trabajo Habla por Nosotros</h2>
-    <p class="subtitle">Descubre la calidad, precisión y detalle en cada pieza que entregamos.</p>
-    <div class="works-grid">
-      <!-- Usando placeholders con color de acento para mayor coherencia visual -->
-      <div class="work-item">
-        <img src="assets/img/Puerta1.jpg" alt="Estructura metálica para construcción">
-        <h3>Estructuras para Construcción</h3>
-      </div>
-      <div class="work-item">
-        <img src="assets/img/Puerta1.jpg" alt="Puerta de seguridad de metal forjado">
-        <h3>Herrería Artística</h3>
-      </div>
-      <div class="work-item">
-        <img src="assets/img/Puerta1.jpg" alt="Componentes de maquinaria industrial">
-        <h3>Componentes Industriales</h3>
-      </div>
-      <div class="work-item">
-        <img src="assets/img/Puerta1.jpg" alt="Mobiliario de metal y madera">
-        <h3>Mobiliario Personalizado</h3>
-      </div>
+  <!-- 8. Llamado final -->
+  <section class="final-cta">
+    <div class="final-cta__box">
+      <h2 class="title-hot">¿Listo para forjar tu idea en metal?</h2>
+      <p class="muted">Contáctanos hoy para obtener una cotización gratuita y sin compromiso.</p>
+      <a class="btn btn--fire" routerLink="/contacto">Solicita tu cotización</a>
     </div>
-    <a routerLink="/galeria" class="learn-more-button">Ver Portafolio Completo</a>
-  </section>
-
-  <!-- 5. SECCIÓN TESTIMONIOS (Mantenemos el carrusel infinito) -->
-  <section class="testimonials-section">
-    <h2>Clientes Satisfechos</h2>
-    <div class="testimonial-carousel">
-      <!-- Duplicado para crear el efecto de carrusel infinito -->
-      <div class="testimonial-slide-infinite">
-        
-        <div class="testimonial-card">
-          <img src="assets/img/cliente2.jpg" alt="Imagen de Carlos M." class="client-photo">
-          <p class="quote">"Su profesionalismo y atención al detalle superaron mis expectativas. El resultado fue impecable, como el metal más puro."</p>
-          <p class="author">- Carlos M.</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="assets/img/cliente1.jpg" alt="Imagen de Ana R." class="client-photo">
-          <p class="quote">"¡Un trabajo excelente! La calidad es notoria y el trato fue muy amable desde el principio, cumpliendo los plazos."</p>
-          <p class="author">- Ana R.</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="assets/img/cliente2.jpg" alt="Imagen de Javier L." class="client-photo">
-          <p class="quote">"Totalmente recomendado. La obra se entregó a tiempo y con la mejor calidad en los acabados."</p>
-          <p class="author">- Javier L.</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="assets/img/cliente1.jpg" alt="Imagen de Sofía P." class="client-photo">
-          <p class="quote">"Me encantó el diseño y la durabilidad de los productos. Sin duda volveré a contratarlos."</p>
-          <p class="author">- Sofía P.</p>
-        </div>
-        
-        <!-- Duplicados para el bucle infinito -->
-        <div class="testimonial-card">
-          <img src="assets/img/cliente2.jpg" alt="Imagen de Carlos M." class="client-photo">
-          <p class="quote">"Su profesionalismo y atención al detalle superaron mis expectativas. El resultado fue impecable, como el metal más puro."</p>
-          <p class="author">- Carlos M.</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="assets/img/cliente1.jpg" alt="Imagen de Ana R." class="client-photo">
-          <p class="quote">"¡Un trabajo excelente! La calidad es notoria y el trato fue muy amable desde el principio, cumpliendo los plazos."</p>
-          <p class="author">- Ana R.</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="assets/img/cliente2.jpg" alt="Imagen de Javier L." class="client-photo">
-          <p class="quote">"Totalmente recomendado. La obra se entregó a tiempo y con la mejor calidad en los acabados."</p>
-          <p class="author">- Javier L.</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="assets/img/cliente1.jpg" alt="Imagen de Sofía P." class="client-photo">
-          <p class="quote">"Me encantó el diseño y la durabilidad de los productos. Sin duda volveré a contratarlos."</p>
-          <p class="author">- Sofía P.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. SECCIÓN DE UBICACIÓN Y MAPA -->
-  <section class="location-section">
-    <h2>¿Dónde Encontrarnos?</h2>
-    <p>Visítanos en nuestro taller para discutir tu proyecto en persona. ¡Estamos listos para recibirte!</p>
-    <div class="map-container">
-      <!-- ⚠️ Importante: Reemplaza el src del iframe con tu ubicación real de Google Maps. -->
-      <iframe 
-     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8317917762329!2d-74.2161210852416!3d-13.17456662626027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9112870057f1a647%3A0xacf12f1dc7c4503!2sImportadora%20R%26E%20AYACUCHO!5e1!3m2!1ses!2spe!4v1759038291843!5m2!1ses!2spe"
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Ubicación de Metalurgia Quicaño">
-      </iframe>
-      
-    </div>
-    <p class="address">
-      <span class="material-icons-sharp">location_on</span>
-      Av. Los Artesanos 123, Zona Industrial, Ayacucho, Perú
-    </p>
-  </section>
-
-
-  <!-- 7. SECCIÓN CTA FINAL -->
-  <section class="final-cta-section">
-    <h3>¿Listo para forjar tu idea en metal?</h3>
-    <p>Contáctanos hoy para obtener una cotización gratuita y sin compromiso.</p>
-    <a routerLink="/contacto" class="cta-button final-cta-button">
-      <span class="material-icons-sharp">chat_bubble</span>
-      Solicita una Cotización Gratuita
-    </a>
   </section>
 </main>

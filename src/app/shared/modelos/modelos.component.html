@@ -1,0 +1,168 @@
+<section class="section modelos" aria-labelledby="t-modelos">
+  <div class="modelos__head">
+    <div>
+      <p class="eyebrow">Catálogo</p>
+      <h2 id="t-modelos" class="title-hot">Modelos modernos</h2>
+      <p class="muted">Elige un estilo y lo fabricamos a la medida de tu vano o espacio. También hacemos tu propio diseño.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Tipo de trabajo">
+      @for (c of categorias; track c.id) {
+        <button type="button" role="tab" class="tab" [class.on]="categoria() === c.id"
+          [attr.aria-selected]="categoria() === c.id" (click)="categoria.set(c.id)">{{ c.nombre }}</button>
+      }
+    </div>
+  </div>
+
+  <!-- Texturas compartidas por los dibujos -->
+  <svg width="0" height="0" class="defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="md-woodBase" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#c47a3c"/><stop offset=".5" stop-color="#ad6129"/><stop offset="1" stop-color="#965020"/>
+      </linearGradient>
+      <pattern id="md-wood" width="140" height="40" patternUnits="userSpaceOnUse">
+        <rect width="140" height="40" fill="url(#md-woodBase)"/>
+        <path d="M0 6 C30 3 60 9 90 6 S130 3 140 7 M0 17 C40 14 70 21 110 17 S135 15 140 18 M0 28 C25 25 60 31 95 27 S130 25 140 29 M0 36 C40 34 80 39 140 36" fill="none" stroke="rgba(90,38,10,.38)"/>
+        <path d="M8 11 C50 9 90 13 130 10" fill="none" stroke="rgba(255,214,160,.18)" stroke-width="1.6"/>
+      </pattern>
+      <linearGradient id="md-woodBaseV" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#b86e33"/><stop offset=".5" stop-color="#c47a3c"/><stop offset="1" stop-color="#a45a25"/>
+      </linearGradient>
+      <pattern id="md-woodV" width="18" height="300" patternUnits="userSpaceOnUse">
+        <rect width="18" height="300" fill="url(#md-woodBaseV)"/>
+        <path d="M4 0 C6 80 2 170 5 300 M11 0 C9 100 13 200 10 300" fill="none" stroke="rgba(90,38,10,.3)"/>
+        <rect x="17" width="1" height="300" fill="#4a2208"/>
+      </pattern>
+      <linearGradient id="md-graph" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#5a6069"/><stop offset=".5" stop-color="#454a52"/><stop offset="1" stop-color="#363a40"/>
+      </linearGradient>
+      <linearGradient id="md-inox" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#7c838b"/><stop offset=".4" stop-color="#f4f6f8"/><stop offset="1" stop-color="#5d636a"/>
+      </linearGradient>
+      <linearGradient id="md-mirror" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e9eef2"/><stop offset=".3" stop-color="#8d969e"/><stop offset=".45" stop-color="#f8fbfd"/>
+        <stop offset=".7" stop-color="#7b848c"/><stop offset="1" stop-color="#d6dce1"/>
+      </linearGradient>
+      <linearGradient id="md-glass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#6aa9d8" stop-opacity=".55"/><stop offset=".5" stop-color="#1f3d5a" stop-opacity=".8"/><stop offset="1" stop-color="#7cb7e0" stop-opacity=".5"/>
+      </linearGradient>
+      <linearGradient id="md-frost" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#dfe8ee" stop-opacity=".75"/><stop offset="1" stop-color="#9fb0bd" stop-opacity=".55"/>
+      </linearGradient>
+      <pattern id="md-blocks" width="40" height="26" patternUnits="userSpaceOnUse">
+        <rect width="40" height="26" fill="#8a8277"/>
+        <path d="M0 0H40M0 13H40M10 0V13M30 13V26" stroke="#6c655b" stroke-width="1.5"/>
+      </pattern>
+    </defs>
+  </svg>
+
+  <div class="grid" role="tabpanel">
+    @for (m of modelos[categoria()]; track m.id; let i = $index) {
+      <article class="modelo" [style.--i]="i">
+        <div class="modelo__art">
+          <svg viewBox="0 0 240 300" role="img" [attr.aria-label]="'Dibujo del modelo ' + m.nombre">
+            <ellipse cx="120" cy="292" rx="96" ry="6" fill="rgba(0,0,0,.5)"/>
+            @switch (m.id) {
+              @case ('p-madera') {
+                <rect x="40" y="10" width="160" height="282" fill="url(#md-wood)" stroke="#4e250a"/>
+                <rect x="54" y="22" width="132" height="270" fill="url(#md-wood)" stroke="#5a2b0c"/>
+                @for (y of [76, 130, 184, 238]; track y) {
+                  <rect x="54" [attr.y]="y" width="132" height="2.5" fill="#3a1a06"/>
+                  <rect x="54" [attr.y]="y + 2.5" width="132" height="1" fill="rgba(255,220,170,.28)"/>
+                }
+                <rect x="72" y="100" width="5" height="120" rx="2.5" fill="url(#md-inox)"/>
+                <circle cx="63" cy="156" r="3.6" fill="url(#md-inox)"/><circle cx="63" cy="167" r="3" fill="url(#md-inox)"/>
+              }
+              @case ('p-grafito') {
+                <rect x="40" y="10" width="160" height="282" fill="#2a2d32"/>
+                <rect x="54" y="22" width="132" height="270" fill="url(#md-graph)"/>
+                <rect x="62" y="30" width="116" height="254" fill="none" stroke="rgba(255,255,255,.08)"/>
+                <rect x="68" y="42" width="22" height="232" fill="url(#md-mirror)" stroke="#8b9299"/>
+                <path d="M72 70 L86 52 M72 150 L86 128" stroke="rgba(255,255,255,.7)" stroke-width="2"/>
+                <rect x="100" y="112" width="66" height="3" fill="url(#md-inox)"/>
+                <rect x="100" y="192" width="66" height="3" fill="url(#md-inox)"/>
+                <rect x="156" y="88" width="5" height="128" rx="2.5" fill="url(#md-inox)"/>
+                <circle cx="172" cy="148" r="3.6" fill="url(#md-inox)"/><circle cx="172" cy="160" r="3" fill="url(#md-inox)"/>
+              }
+              @case ('p-pivot') {
+                <rect x="40" y="10" width="160" height="282" fill="#1b1c1f"/>
+                <rect x="52" y="20" width="136" height="272" fill="url(#md-woodV)" stroke="#4a2208"/>
+                <rect x="150" y="36" width="20" height="240" fill="url(#md-frost)" stroke="#111"/>
+                <rect x="132" y="104" width="6" height="110" rx="3" fill="#111" stroke="#3a3c40"/>
+              }
+              @case ('v-escalonada') {
+                <rect x="0" y="30" width="240" height="240" fill="url(#md-blocks)"/>
+                <rect x="30" y="58" width="180" height="184" fill="url(#md-glass)"/>
+                <g fill="none" stroke="#353a40" stroke-width="8">
+                  <rect x="30" y="58" width="180" height="184"/>
+                  <path d="M62 62 V238 M178 62 V238"/>
+                  @for (y of [82, 108, 134, 160, 186, 212]; track y; let j = $index) {
+                    <path [attr.d]="j % 2 ? 'M62 ' + y + ' H206' : 'M34 ' + y + ' H178'"/>
+                  }
+                </g>
+                <rect x="24" y="242" width="192" height="8" fill="#2a2e33"/>
+              }
+              @case ('v-lineas') {
+                <rect x="0" y="30" width="240" height="240" fill="#4a2c1e"/>
+                <path d="M0 50H240M0 90H240M0 130H240M0 170H240M0 210H240M0 250H240" stroke="#2f1a10" stroke-width="2"/>
+                <rect x="30" y="60" width="180" height="180" fill="url(#md-glass)"/>
+                <g fill="none" stroke="#c9ced3" stroke-width="5">
+                  <rect x="30" y="60" width="180" height="180" stroke-width="8"/>
+                  @for (x of [50, 64, 78, 104, 118, 142, 162, 176, 192]; track x) {
+                    <path [attr.d]="'M' + x + ' 62 V238'"/>
+                  }
+                  <path d="M30 100 H78 M104 80 H142 M162 120 H210 M30 170 H64 M118 190 H162 M78 214 H118 M176 160 H210"/>
+                </g>
+              }
+              @case ('v-batiente') {
+                <rect x="24" y="44" width="192" height="212" fill="#1a1b1e"/>
+                <rect x="32" y="52" width="176" height="196" fill="url(#md-glass)"/>
+                <g fill="none" stroke="#1e1f23" stroke-width="6">
+                  <rect x="32" y="52" width="88" height="196"/><rect x="120" y="52" width="88" height="196"/>
+                  <path d="M61 52 V248 M90 52 V248 M149 52 V248 M178 52 V248"/>
+                  <path d="M32 100 H120 M120 100 H208 M61 150 H90 M149 150 H178 M32 196 H61 M90 196 H120 M120 196 H149 M178 196 H208"/>
+                </g>
+                <rect x="112" y="140" width="4" height="22" rx="2" fill="url(#md-inox)"/>
+                <rect x="124" y="140" width="4" height="22" rx="2" fill="url(#md-inox)"/>
+              }
+              @case ('m-trapecio') {
+                <polygon points="16,118 224,118 236,104 28,104" fill="url(#md-wood)" stroke="#5a2b0c"/>
+                <rect x="16" y="118" width="208" height="14" fill="url(#md-wood)" stroke="#5a2b0c"/>
+                <rect x="16" y="118" width="208" height="14" fill="rgba(40,16,4,.3)"/>
+                <g fill="none" stroke="#34373c" stroke-width="8" stroke-linejoin="round">
+                  <path d="M28 136 L40 284 L64 284 L78 136"/>
+                  <path d="M162 136 L176 284 L200 284 L212 136"/>
+                </g>
+              }
+              @case ('m-u') {
+                <rect x="16" y="164" width="208" height="20" fill="url(#md-wood)" stroke="#5a2b0c"/>
+                <rect x="16" y="164" width="208" height="5" fill="rgba(255,220,170,.18)"/>
+                <g fill="none" stroke="#34373c" stroke-width="8">
+                  <rect x="30" y="188" width="38" height="96"/>
+                  <rect x="172" y="188" width="38" height="96"/>
+                </g>
+                <rect x="96" y="150" width="34" height="14" rx="2" fill="#c9ced3"/>
+                <rect x="140" y="140" width="10" height="24" rx="3" fill="#7b4b2a"/>
+              }
+              @case ('m-barra') {
+                <rect x="14" y="64" width="212" height="16" fill="url(#md-wood)" stroke="#5a2b0c"/>
+                <g fill="none" stroke="#34373c" stroke-width="8">
+                  <path d="M34 82 V286 M206 82 V286 M34 96 H206"/>
+                </g>
+                <rect x="30" y="222" width="180" height="6" rx="3" fill="url(#md-inox)"/>
+              }
+            }
+          </svg>
+          <span class="modelo__shine" aria-hidden="true"></span>
+        </div>
+        <div class="modelo__body">
+          <h3>{{ m.nombre }}</h3>
+          <p>{{ m.detalle }}</p>
+          <ul class="chips">
+            @for (a of m.acabados; track a) { <li>{{ a }}</li> }
+          </ul>
+          <a class="btn btn--ghost btn--sm" [href]="whatsapp(m)" target="_blank" rel="noopener">Cotizar este modelo</a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
