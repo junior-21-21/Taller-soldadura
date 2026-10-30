@@ -22,6 +22,6 @@
 .contact-alternatives { text-align: center; margin-top: 2.5rem; }
 .contact-alternatives__text { color: var(--muted); margin: 0 0 1rem; }
 .contact-alternatives__buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-.contact-alternatives .material-icons-outlined { font-size: 1.2rem; }
+.contact-alternatives .material-symbols-outlined { font-size: 1.2rem; }
 
 @media (max-width: 560px) { .form__fieldset { grid-template-columns: 1fr; } }

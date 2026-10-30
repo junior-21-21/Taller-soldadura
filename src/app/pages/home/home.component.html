@@ -150,13 +150,23 @@
       <p class="muted">Visítanos en el taller para conversar tu proyecto en persona. ¡Estamos listos para recibirte!</p>
       <p class="address">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        Av. Los Artesanos 123, Zona Industrial, Ayacucho, Perú
+        Ayacucho, Perú
       </p>
+      <p class="muted tels">Llámanos: <a href="tel:+51900048717">900 048 717</a> · <a href="tel:+51930929558">930 929 558</a> · <a href="tel:+51994988519">994 988 519</a></p>
       <a class="btn btn--ghost" href="tel:+51900048717">Llamar al 900 048 717</a>
+      <a class="btn btn--fire" href="https://www.google.com/maps/dir/?api=1&destination=-13.174752,-74.2166704" target="_blank" rel="noopener">Cómo llegar</a>
     </div>
     <div class="map reveal">
-      <iframe title="Ubicación del taller Run Run en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8317917762329!2d-74.2161210852416!3d-13.17456662626027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9112870057f1a647%3A0xacf12f1dc7c4503!2sImportadora%20R%26E%20AYACUCHO!5e1!3m2!1ses!2spe!4v1759038291843!5m2!1ses!2spe"></iframe>
+      @if (verMapa) {
+        <iframe title="Ubicación del taller Run Run en Google Maps" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://maps.google.com/maps?q=-13.174752,-74.2166704&z=18&output=embed"></iframe>
+      } @else {
+        <!-- El mapa solo se descarga si el visitante lo pide: ahorra ~1 MB de datos -->
+        <button type="button" class="map__cargar" (click)="verMapa = true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Ver mapa del taller
+        </button>
+      }
     </div>
   </section>
 

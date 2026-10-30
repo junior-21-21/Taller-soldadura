@@ -1,6 +1,7 @@
 .muted { color: var(--muted); max-width: 52ch; }
 .modelos__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; }
 .modelos__head h2 { margin-bottom: .3em; }
+.modelos__head .btn { margin-top: 1rem; }
 .defs { position: absolute; }
 
 .tabs { display: inline-flex; padding: 4px; gap: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }

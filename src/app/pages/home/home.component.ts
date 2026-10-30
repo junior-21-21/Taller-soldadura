@@ -30,6 +30,7 @@ interface BeadDot { x: number; y: number; t: number; r: number; }
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnDestroy {
+  verMapa = false;
   private hero = viewChild.required<ElementRef<HTMLElement>>('hero');
   private trail = viewChild.required<ElementRef<HTMLCanvasElement>>('trail');
   private heroArc = viewChild.required<ElementRef<HTMLElement>>('heroArc');

@@ -20,7 +20,7 @@
   transition: border-color .2s var(--ease-out), background-color .2s var(--ease-out), transform .16s var(--ease-out);
 }
 .contacto-link:active { transform: scale(.97); }
-.contacto-link .material-icons { font-size: 1.1rem; color: var(--fire-2); }
+.contacto-link .material-symbols-outlined { font-size: 1.1rem; color: var(--fire-2); }
 .contacto-link-whatsapp { background: #1f8f4d; border-color: transparent; }
 @media (hover: hover) and (pointer: fine) {
   .contacto-link:hover { border-color: rgba(255, 122, 0, .5); }

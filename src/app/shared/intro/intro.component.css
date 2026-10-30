@@ -1,20 +1,20 @@
 .intro {
   position: fixed; inset: 0; z-index: 9999; display: grid; place-content: center; justify-items: center; gap: 18px;
   background: radial-gradient(60% 50% at 50% 48%, #fff4e8, #fff 70%);
-  animation: salir .5s cubic-bezier(.23, 1, .32, 1) 2.3s forwards; cursor: pointer;
+  animation: salir .35s cubic-bezier(.23, 1, .32, 1) 1.1s forwards; cursor: pointer;
 }
 .intro.fuera { animation-delay: 0s; animation-duration: .25s; }
 .intro__logo { position: relative; width: min(78vw, 460px); }
 .intro__logo img {
   display: block; width: 100%; height: auto; border-radius: 16px;
   box-shadow: 0 18px 50px -18px rgba(255, 90, 0, .55);
-  clip-path: inset(0 100% 0 0 round 16px); animation: revelar 1.5s cubic-bezier(.65, 0, .35, 1) .15s forwards;
+  clip-path: inset(0 100% 0 0 round 16px); animation: revelar .8s cubic-bezier(.65, 0, .35, 1) .05s forwards;
 }
 /* Punto de soldadura que recorre el logo y lo va "descubriendo" */
 .intro__arco {
   position: absolute; top: 50%; left: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%;
   background: #fff; box-shadow: 0 0 12px 4px #ffd27a, 0 0 40px 14px rgba(255, 120, 0, .7);
-  animation: arco 1.5s cubic-bezier(.65, 0, .35, 1) .15s forwards, apagar .3s ease 1.6s forwards;
+  animation: arco .8s cubic-bezier(.65, 0, .35, 1) .05s forwards, apagar .2s ease .85s forwards;
 }
 .intro__arco i {
   position: absolute; left: 5px; top: 5px; width: 3px; height: 3px; border-radius: 50%; background: #ffb347;
@@ -22,7 +22,7 @@
 }
 .intro__txt {
   margin: 0; font: 600 .9rem/1 var(--font-display, 'Oswald', sans-serif); letter-spacing: .35em; text-transform: uppercase; color: var(--fire-2, #e0590b);
-  opacity: 0; animation: aparecer .5s ease 1.4s forwards;
+  opacity: 0; animation: aparecer .3s ease .6s forwards;
 }
 @keyframes revelar { to { clip-path: inset(0 0 0 0 round 16px); } }
 @keyframes arco { to { left: 100%; } }
@@ -34,5 +34,5 @@
   .intro__logo img { animation: none; clip-path: none; }
   .intro__arco { display: none; }
   .intro__txt { animation: none; opacity: 1; }
-  .intro { animation-delay: .8s; }
+  .intro { animation-delay: .4s; }
 }

@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 type Categoria = 'puertas' | 'ventanas' | 'mesas';
 
@@ -12,6 +13,7 @@ interface Modelo {
 /** Catálogo de modelos modernos con dibujos propios (SVG, sin fotos pesadas) */
 @Component({
   selector: 'app-modelos',
+  imports: [RouterLink],
   templateUrl: './modelos.component.html',
   styleUrl: './modelos.component.css',
 })

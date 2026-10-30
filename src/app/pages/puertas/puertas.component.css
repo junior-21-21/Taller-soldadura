@@ -1,0 +1,42 @@
+.puertas { padding-top: clamp(6.5rem, 12vw, 8rem); }
+.head { max-width: 62ch; }
+.head h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); text-transform: uppercase; margin: 0 0 .4em; }
+.muted { color: var(--muted); }
+
+.filtros { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0 1.6rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: 500 .9rem/1 var(--font-body); padding: .65rem 1rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: #fff; color: var(--text);
+  transition: background-color .2s var(--ease-out), color .2s var(--ease-out), transform .16s var(--ease-out);
+}
+.chip:active { transform: scale(.97); }
+.chip.on { background: var(--text); border-color: var(--text); color: #fff; }
+.orden { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .9rem; }
+.orden select { font: inherit; color: var(--text); padding: .55rem .8rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+
+.grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.puerta { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow); min-width: 0; }
+.puerta__foto { display: block; padding: 0; border: 0; cursor: zoom-in; background: var(--surface); aspect-ratio: 10 / 17; overflow: hidden; }
+.puerta__foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--ease-out); }
+.puerta__info { display: flex; flex-direction: column; gap: .35rem; padding: 16px 18px 20px; flex: 1; }
+.puerta__info h2 { font-size: 1.15rem; margin: 0; text-transform: uppercase; }
+.puerta__info p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.45; }
+.codigo { font: 600 .75rem/1 var(--font-body); letter-spacing: .12em; color: var(--fire-2); }
+.medida { font-size: .82rem !important; }
+.precio { font: 700 1.35rem/1.2 var(--font-display) !important; color: var(--text) !important; margin-top: auto !important; padding-top: .4rem; }
+.precio small { font: 500 .75rem var(--font-body); color: var(--muted); }
+.puerta__info .btn { align-self: flex-start; margin-top: .5rem; }
+
+.visor { position: fixed; inset: 0; z-index: 1000; background: rgba(20, 14, 10, .88); display: grid; place-items: center; padding: 16px; cursor: zoom-out; }
+.visor img { max-height: 92vh; max-width: 100%; border-radius: 12px; }
+.cerrar { position: absolute; top: 14px; right: 18px; font-size: 2.2rem; line-height: 1; color: #fff; background: none; border: 0; cursor: pointer; }
+
+@media (hover: hover) and (pointer: fine) { .puerta:hover .puerta__foto img { transform: scale(1.03); } }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 2px 16px 6px; scrollbar-width: none; width: calc(100% + 32px); }
+  .chip { flex: none; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .puerta__info { padding: 12px 12px 16px; } .puerta__info h2 { font-size: 1rem; } .precio { font-size: 1.15rem !important; } .puerta__info .btn { align-self: stretch; padding-inline: .4rem; font-size: .78rem; white-space: nowrap; } }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.puerta__info .btn { width: 100%; }

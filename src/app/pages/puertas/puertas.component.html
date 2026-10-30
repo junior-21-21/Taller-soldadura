@@ -1,0 +1,48 @@
+<main class="section puertas">
+  <header class="head">
+    <p class="eyebrow">Catálogo 2026</p>
+    <h1>Puertas modernas de metal</h1>
+    <p class="muted">{{ lista().length }} modelos contraplacados de 2.40 × 1 m hechos en nuestro taller. Elige uno y lo fabricamos a la medida de tu vano. Precios referenciales, no incluyen IGV.</p>
+  </header>
+
+  <div class="filtros">
+    <div class="chips" role="group" aria-label="Filtrar por estilo">
+      @for (e of estilos; track e.id) {
+        <button type="button" class="chip" [class.on]="estilo() === e.id" [attr.aria-pressed]="estilo() === e.id" (click)="estilo.set(e.id)">{{ e.nombre }}</button>
+      }
+    </div>
+    <label class="orden">Ordenar
+      <select [value]="orden()" (change)="orden.set($any($event.target).value)">
+        <option value="catalogo">Catálogo</option>
+        <option value="menor">Precio: menor a mayor</option>
+        <option value="mayor">Precio: mayor a menor</option>
+      </select>
+    </label>
+  </div>
+
+  <ul class="grid">
+    @for (p of lista(); track p.img; let i = $index) {
+      <li class="puerta">
+        <button type="button" class="puerta__foto" (click)="abierta.set(p)" [attr.aria-label]="'Ver grande ' + p.codigo">
+          <img [src]="'assets/img/puertas/' + p.img + '.webp'" [alt]="'Puerta ' + p.nombre + ' ' + p.codigo"
+            width="300" height="640" [attr.loading]="i < 4 ? 'eager' : 'lazy'" decoding="async" />
+        </button>
+        <div class="puerta__info">
+          <span class="codigo">{{ p.codigo }}</span>
+          <h2>{{ p.nombre }}</h2>
+          @if (p.detalle) { <p>{{ p.detalle }}</p> }
+          <p class="medida">{{ p.medida ?? '2.40 × 1 m' }}</p>
+          <p class="precio">{{ precio(p) }} @if (p.precio !== null) { <small>+ IGV</small> }</p>
+          <a class="btn btn--fire btn--sm" [href]="whatsapp(p)" target="_blank" rel="noopener">Cotizar<span class="sr"> {{ p.codigo }}</span></a>
+        </div>
+      </li>
+    }
+  </ul>
+
+  @if (abierta(); as p) {
+    <div class="visor" role="dialog" aria-modal="true" [attr.aria-label]="p.codigo" (click)="abierta.set(null)">
+      <img [src]="'assets/img/puertas/' + p.img + '.webp'" [alt]="'Puerta ' + p.nombre + ' ' + p.codigo" />
+      <button type="button" class="cerrar" aria-label="Cerrar">×</button>
+    </div>
+  }
+</main>

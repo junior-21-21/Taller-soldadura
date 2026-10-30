@@ -10,7 +10,7 @@
 
           <div class="form-group">
             <label for="nombre" class="form-group__label">
-              <span class="material-icons-outlined form-group__icon" aria-hidden="true">person</span>
+              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">person</span>
               Nombre
             </label>
             <input type="text" id="nombre" name="nombre" [(ngModel)]="cotizacion.nombre" required class="form-group__input" placeholder="Tu nombre completo">
@@ -18,7 +18,7 @@
           
           <div class="form-group">
             <label for="telefono" class="form-group__label">
-              <span class="material-icons-outlined form-group__icon" aria-hidden="true">phone</span>
+              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">phone</span>
               Número de Teléfono
             </label>
             <input type="tel" id="telefono" name="telefono" [(ngModel)]="cotizacion.telefono" required class="form-group__input" placeholder="Ej: 987 654 321">
@@ -31,7 +31,7 @@
 
           <div class="form-group">
             <label for="servicio" class="form-group__label">
-              <span class="material-icons-outlined form-group__icon" aria-hidden="true">build</span>
+              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">build</span>
               Tipo de Servicio
             </label>
             <select id="servicio" name="servicio" [(ngModel)]="cotizacion.servicio" required class="form-group__select">
@@ -48,7 +48,7 @@
           
           <div class="form-group">
             <label for="detalles" class="form-group__label">
-              <span class="material-icons-outlined form-group__icon" aria-hidden="true">description</span>
+              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">description</span>
               Detalles de tu Solicitud
             </label>
             <textarea class="form-group__input" id="detalles" name="detalles" rows="4" [(ngModel)]="cotizacion.detalles" placeholder="Ej: Necesito una reja de seguridad de 2x3 metros para una ventana. Incluir medidas, materiales deseados y ubicación."></textarea>
@@ -66,8 +66,16 @@
       <p class="contact-alternatives__text">¿Prefieres contactarnos directamente? ¡Estamos listos para ayudarte!</p>
       <div class="contact-alternatives__buttons">
         <a href="tel:+51900048717" class="btn btn--ghost contact-button--call">
-          <span class="material-icons-outlined" aria-hidden="true">phone</span>
-          Llamar Ahora
+          <span class="material-symbols-outlined" aria-hidden="true">phone</span>
+          Llamar 900 048 717
+        </a>
+        <a href="tel:+51930929558" class="btn btn--ghost contact-button--call">
+          <span class="material-symbols-outlined" aria-hidden="true">phone</span>
+          Llamar 930 929 558
+        </a>
+        <a href="tel:+51994988519" class="btn btn--ghost contact-button--call">
+          <span class="material-symbols-outlined" aria-hidden="true">phone</span>
+          Llamar 994 988 519
         </a>
       </div>
     </div>

@@ -40,16 +40,16 @@
         </a>
         
         <a [href]="'tel:' + miembro.celular" class="contacto-link">
-          <span class="material-icons">phone</span> 
+          <span class="material-symbols-outlined">phone</span> 
           Llamar
         </a>
         <a [href]="'mailto:' + miembro.email" class="contacto-link">
-          <span class="material-icons">email</span> 
+          <span class="material-symbols-outlined">mail</span> 
           Correo
         </a>
         <!-- Enlace Opcional a LinkedIn -->
         <a *ngIf="miembro.linkedin" [href]="miembro.linkedin" target="_blank" class="contacto-link contacto-link-social">
-          <span class="material-icons">share</span> 
+          <span class="material-symbols-outlined">share</span> 
           LinkedIn
         </a>
       </div>
@@ -62,7 +62,7 @@
     <h3 class="valores-titulo title-hot">Nuestros pilares</h3>
     <div class="valores-grid">
       <div class="valor-card card" *ngFor="let valor of valores">
-        <span class="material-icons valor-icon">{{ valor.icon }}</span>
+        <span class="material-symbols-outlined valor-icon">{{ valor.icon }}</span>
         <h4>{{ valor.titulo }}</h4>
         <p>{{ valor.descripcion }}</p>
       </div>
