@@ -14,7 +14,7 @@ Guía de diseño de la web del taller. Cualquier persona o agente que cambie la 
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--bg` | `#ffffff` | Fondo de toda la página (siempre blanco) |
+| `--bg` | `#ffffff` | Fondo general de la página (blanco) |
 | `--surface` | `#f7f4f0` | Tarjetas y bloques suaves |
 | `--line` | `#ebe4dc` | Bordes y separadores |
 | `--text` | `#1d1713` | Texto principal |
@@ -22,13 +22,13 @@ Guía de diseño de la web del taller. Cualquier persona o agente que cambie la 
 | `--fire` | `#ff6a00` | Acento: botones principales, detalles |
 | `--fire-2` | `#e0590b` | Acento en texto (contraste sobre blanco) |
 
-Un solo acento naranja. Nada de morados, neones ni fondos oscuros de página completa.
+Un solo acento naranja. Nada de morados ni neones. Las cabeceras de Inicio, Servicios y Galería usan una foto oscura de fondo (capa rgba(18, 11, 6, .8 a .9) y texto blanco, antetítulo #ffb347); el resto de la página es blanco.
 
 ## Tipografía
 
 - Títulos: **Oswald** 500 a 700, en mayúsculas.
 - Texto: **Inter** 400 a 600.
-- Íconos: Material Symbols Outlined (subconjunto de 4 KB).
+- Íconos: Bootstrap Icons 1.13.1 incrustados como SVG con el componente `app-icon` (`src/app/shared/icon/icon.component.ts`). Para agregar uno, se suma su SVG al mapa ICONOS. Material Symbols queda solo donde aún se usa.
 - Todas las fuentes se sirven desde `src/assets/fonts` (sin Google Fonts) con `font-display: swap`.
 
 ## Componentes
@@ -41,6 +41,7 @@ Un solo acento naranja. Nada de morados, neones ni fondos oscuros de página com
 ## Fotos y contenido
 
 - Se usan **fotos reales** de trabajos del taller (`assets/img/puertas/pmNN.webp`, del catálogo PDF). No se usan fotos de stock ni imágenes de relleno.
+- Los fondos de cabecera (`hero-taller.webp`, `fondo-servicios.webp`, `fondo-chispas.webp`) son provisionales: se cambian por fotos reales del taller cuando Milu las envíe.
 - Nada de datos inventados: ni personas, ni opiniones de clientes, ni direcciones, ni cifras. Si falta un dato real, la sección no se muestra.
 - Los precios son en soles, sin IGV, y vienen del catálogo PDF (`pages/puertas/puertas.data.ts`).
 - Se escribe en español claro, de tú al cliente, con frases cortas.
