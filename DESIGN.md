@@ -22,7 +22,7 @@ Guía de diseño de la web del taller. Cualquier persona o agente que cambie la 
 | `--fire` | `#ff6a00` | Acento: botones principales, detalles |
 | `--fire-2` | `#e0590b` | Acento en texto (contraste sobre blanco) |
 
-Un solo acento naranja. Nada de morados ni neones. Las cabeceras de Inicio, Servicios y Galería usan una foto oscura de fondo (capa oscura rgba(18, 11, 6, …) de .35 a .92 según la página, para que el texto blanco se lea y texto blanco, antetítulo #ffb347); el resto de la página es blanco.
+Un solo acento naranja. Nada de morados ni neones. Las cabeceras de Inicio, Servicios y Galería usan una foto oscura de fondo (capa oscura rgba(18, 11, 6, …) de .35 a .92 según la página, para que el texto blanco se lea; antetítulo #ffb347); el resto de la página es blanco.
 
 ## Tipografía
 
