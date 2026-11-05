@@ -1,6 +1,6 @@
 .intro {
   position: fixed; inset: 0; z-index: 9999; display: grid; place-content: center; justify-items: center; gap: 18px;
-  background: radial-gradient(60% 50% at 50% 48%, #fff4e8, #fff 70%);
+  background: radial-gradient(60% 50% at 50% 48%, #2a1a0f, #0d0907 70%);
   animation: salir .35s cubic-bezier(.23, 1, .32, 1) 1.1s forwards; cursor: pointer;
 }
 .intro.fuera { animation-delay: 0s; animation-duration: .25s; }

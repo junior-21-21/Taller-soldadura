@@ -25,13 +25,13 @@
   transition-timing-function: cubic-bezier(.23, 1, .32, 1);
 }
 .steps li.done { color: var(--muted); }
-.steps li.done::before { content: "✓"; border-color: #f3c7a0; color: var(--fire-2); }
+.steps li.done::before { content: "✓"; border-color: #7a4c2a; color: var(--fire-2); }
 .steps li.active { color: var(--text); }
 .steps li.active::before { border-color: var(--fire); background: var(--fire); color: #fff; box-shadow: 0 0 16px rgba(255, 122, 0, .7); }
 
 .stage-wrap {
   position: relative; padding: 20px; border-radius: 22px;
-  background: radial-gradient(70% 60% at 50% 55%, rgba(255, 160, 80, .12), transparent 70%), linear-gradient(180deg, #faf7f3, #f1ebe4);
+  background: radial-gradient(70% 60% at 50% 55%, rgba(255, 160, 80, .12), transparent 70%), linear-gradient(180deg, #261c16, #17110d);
   box-shadow: var(--shadow);
   border: 1px solid var(--line);
 }

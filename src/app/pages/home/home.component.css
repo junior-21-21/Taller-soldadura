@@ -107,7 +107,7 @@
 .bento__card {
   --mx: -200px; --my: -200px;
   position: relative; padding: 26px; border-radius: 12px; overflow: hidden; isolation: isolate;
-  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow);
+  background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow);
   display: flex; flex-direction: column; gap: .4rem;
   transition: border-color .3s var(--ease-out), transform .3s var(--ease-out), opacity .7s var(--ease-out);
 }
@@ -157,7 +157,7 @@
 .about { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
 .about__img { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); }
 .about__img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.about__label { position: absolute; left: 14px; bottom: 12px; color: var(--text); background: rgba(255, 255, 255, .88); padding: .4rem .7rem; border-radius: 999px; }
+.about__label { position: absolute; left: 14px; bottom: 12px; color: var(--text); background: rgba(17, 12, 9, .85); padding: .4rem .7rem; border-radius: 999px; }
 .pillars { list-style: none; padding: 0; margin: 1.5rem 0 2rem; display: grid; gap: .6rem; }
 .pillars li { padding-left: 1.6rem; position: relative; color: var(--muted); }
 .pillars li::before {
@@ -182,7 +182,7 @@
 .address { display: flex; gap: .6rem; align-items: flex-start; font-weight: 600; margin: 1rem 0 1.6rem; }
 .address svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--fire-2); stroke-width: 2; }
 .map { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 3; }
-.map { display: grid; background: linear-gradient(135deg, #f7f4f0, #efe8df); }
+.map { display: grid; background: linear-gradient(135deg, #1f1712, #15100c); }
 .map__cargar { display: grid; place-content: center; justify-items: center; gap: .6rem; border: 0; background: none; cursor: pointer; font: 600 1rem/1 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--text); }
 .map__cargar svg { width: 44px; height: 44px; fill: none; stroke: var(--fire); stroke-width: 1.8; }
 .map__cargar:active { transform: scale(.97); }

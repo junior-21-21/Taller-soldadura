@@ -7,16 +7,16 @@
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { min-height: 44px;
   font: 500 .9rem/1 var(--font-body); padding: .65rem 1rem; border-radius: 999px; cursor: pointer;
-  border: 1px solid var(--line); background: #fff; color: var(--text);
+  border: 1px solid var(--line); background: var(--card); color: var(--text);
   transition: background-color .2s var(--ease-out), color .2s var(--ease-out), transform .16s var(--ease-out);
 }
 .chip:active { transform: scale(.97); }
-.chip.on { background: var(--text); border-color: var(--text); color: #fff; }
+.chip.on { background: var(--fire); border-color: var(--fire); color: #1a0700; }
 .orden { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .9rem; }
-.orden select { min-height: 44px; font: inherit; color: var(--text); padding: .55rem .8rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.orden select { min-height: 44px; font: inherit; color: var(--text); padding: .55rem .8rem; border-radius: 10px; border: 1px solid var(--line); background: var(--card); }
 
 .grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
-.puerta { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow); min-width: 0; }
+.puerta { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: var(--shadow); min-width: 0; }
 .puerta__foto { display: block; padding: 0; border: 0; cursor: zoom-in; background: var(--surface); aspect-ratio: 10 / 17; overflow: hidden; }
 .puerta__foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--ease-out); }
 .puerta__info { display: flex; flex-direction: column; gap: .35rem; padding: 16px 18px 20px; flex: 1; }

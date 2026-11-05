@@ -16,7 +16,7 @@
 .contacto-link {
   display: inline-flex; align-items: center; gap: .35rem; padding: .5rem .85rem; border-radius: 999px;
   font-size: .85rem; font-weight: 600; text-decoration: none; color: var(--text);
-  border: 1px solid var(--line); background: #fff;
+  border: 1px solid var(--line); background: var(--card);
   transition: border-color .2s var(--ease-out), background-color .2s var(--ease-out), transform .16s var(--ease-out);
 }
 .contacto-link:active { transform: scale(.97); }

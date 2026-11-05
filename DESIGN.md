@@ -14,15 +14,16 @@ Guía de diseño de la web del taller. Cualquier persona o agente que cambie la 
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--bg` | `#ffffff` | Fondo general de la página (blanco) |
-| `--surface` | `#f7f4f0` | Tarjetas y bloques suaves |
-| `--line` | `#ebe4dc` | Bordes y separadores |
-| `--text` | `#1d1713` | Texto principal |
-| `--muted` | `#6d635a` | Texto secundario |
+| `--bg` | `#110c09` | Fondo de toda la página (oscuro) |
+| `--surface` | `#1b1410` | Bloques suaves |
+| `--card` | `#1f1712` | Tarjetas, menú y campos |
+| `--line` | `#3a2d23` | Bordes y separadores |
+| `--text` | `#f4ece4` | Texto principal |
+| `--muted` | `#b8a999` | Texto secundario |
 | `--fire` | `#ff6a00` | Acento: botones principales, detalles |
-| `--fire-2` | `#e0590b` | Acento en texto (contraste sobre blanco) |
+| `--fire-2` | `#ff8a3d` | Acento en texto (contraste sobre oscuro) |
 
-Un solo acento naranja. Nada de morados ni neones. Las cabeceras de Inicio, Servicios y Galería usan una foto oscura de fondo (capa oscura rgba(18, 11, 6, …) de .35 a .92 según la página, para que el texto blanco se lea; antetítulo #ffb347); el resto de la página es blanco.
+Tema oscuro de taller en toda la página, con un solo acento naranja. Inicio, Servicios, Galería y Contacto llevan foto de soldadura de fondo con capa oscura. Nada de morados ni neones.
 
 ## Tipografía
 
@@ -34,14 +35,14 @@ Un solo acento naranja. Nada de morados ni neones. Las cabeceras de Inicio, Serv
 ## Componentes
 
 - Botones: `.btn--fire` (principal, naranja) y `.btn--ghost` (borde). Al presionar se encogen a `scale(.97)`. El efecto hover solo aparece con mouse.
-- Tarjetas: fondo blanco, borde `--line`, radio de 14 a 18 px y sombra `--shadow`.
+- Tarjetas: fondo `--card`, borde `--line`, radio de 14 a 18 px y sombra `--shadow`.
 - Zonas táctiles de al menos 44 px de alto.
 - El foco con teclado siempre se ve: contorno naranja de 3 px (`:focus-visible`).
 
 ## Fotos y contenido
 
 - Se usan **fotos reales** de trabajos del taller (`assets/img/puertas/pmNN.webp`, del catálogo PDF). No se usan fotos de stock ni imágenes de relleno.
-- Los fondos de cabecera (`hero-taller.webp`, `fondo-servicios.webp`, `fondo-chispas.webp`) son provisionales: se cambian por fotos reales del taller cuando Milu las envíe.
+- Los fondos de cabecera son fotos que eligió Milu. Inicio (`hero-taller.webp`): soldador con chispas azules. Servicios y Contacto (`fondo-servicios.webp`, `fondo-contacto.webp`): chispas naranjas.
 - Nada de datos inventados: ni personas, ni opiniones de clientes, ni direcciones, ni cifras. Si falta un dato real, la sección no se muestra.
 - Los precios son en soles, sin IGV, y vienen del catálogo PDF (`pages/puertas/puertas.data.ts`).
 - Se escribe en español claro, de tú al cliente, con frases cortas.
