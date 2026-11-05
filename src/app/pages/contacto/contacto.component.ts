@@ -1,10 +1,11 @@
+import { IconComponent } from '../../shared/icon/icon.component';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-contacto',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule, IconComponent],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })

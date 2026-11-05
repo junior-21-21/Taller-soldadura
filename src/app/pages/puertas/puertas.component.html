@@ -33,7 +33,7 @@
           @if (p.detalle) { <p>{{ p.detalle }}</p> }
           <p class="medida">{{ p.medida ?? '2.40 × 1 m' }}</p>
           <p class="precio">{{ precio(p) }} @if (p.precio !== null) { <small>+ IGV</small> }</p>
-          <a class="btn btn--fire btn--sm" [href]="whatsapp(p)" target="_blank" rel="noopener">Cotizar<span class="sr"> {{ p.codigo }}</span></a>
+          <a class="btn btn--fire btn--sm" [href]="whatsapp(p)" target="_blank" rel="noopener"><app-icon name="whatsapp" /> Cotizar<span class="sr"> {{ p.codigo }}</span></a>
         </div>
       </li>
     }

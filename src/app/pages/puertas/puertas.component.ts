@@ -1,9 +1,11 @@
+import { IconComponent } from '../../shared/icon/icon.component';
 import { Component, computed, signal } from '@angular/core';
 import { ESTILOS, Estilo, PUERTAS, Puerta } from './puertas.data';
 
 @Component({
   selector: 'app-puertas',
   standalone: true,
+  imports: [IconComponent],
   templateUrl: './puertas.component.html',
   styleUrl: './puertas.component.css'
 })

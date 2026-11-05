@@ -2,62 +2,62 @@
   <section class="form-section">
     <div class="form-card">
       <p class="eyebrow">Cotización gratis</p>
-      <h2 class="form-card__title title-hot">Solicita tu cotización</h2>
+      <h1 class="form-card__title title-hot">Solicita tu cotización</h1>
       <form (ngSubmit)="enviarWhatsApp()" #cotizacionForm="ngForm" class="quote-form">
-        
+
         <fieldset class="form__fieldset">
           <legend class="form__legend">Tus Datos de Contacto</legend>
 
           <div class="form-group">
             <label for="nombre" class="form-group__label">
-              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">person</span>
+              <app-icon class="form-group__icon" name="person-fill" />
               Nombre
             </label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="cotizacion.nombre" required class="form-group__input" placeholder="Tu nombre completo">
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="cotizacion.nombre" required autocomplete="name" class="form-group__input" placeholder="Ej: Rosa Quispe…">
           </div>
-          
+
           <div class="form-group">
             <label for="telefono" class="form-group__label">
-              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">phone</span>
+              <app-icon class="form-group__icon" name="telephone-fill" />
               Número de Teléfono
             </label>
-            <input type="tel" id="telefono" name="telefono" [(ngModel)]="cotizacion.telefono" required class="form-group__input" placeholder="Ej: 987 654 321">
+            <input type="tel" id="telefono" name="telefono" [(ngModel)]="cotizacion.telefono" required autocomplete="tel" inputmode="tel" class="form-group__input" placeholder="Ej: 987 654 321…">
           </div>
 
         </fieldset>
-        
+
         <fieldset class="form__fieldset">
           <legend class="form__legend">Detalles del Servicio</legend>
 
           <div class="form-group">
             <label for="servicio" class="form-group__label">
-              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">build</span>
+              <app-icon class="form-group__icon" name="tools" />
               Tipo de Servicio
             </label>
             <select id="servicio" name="servicio" [(ngModel)]="cotizacion.servicio" required class="form-group__select">
               <option value="" disabled selected>Selecciona un servicio</option>
-              <option value="Soldadura Industrial">Soldadura Industrial</option>
-              <option value="Estructuras Metálicas">Estructuras Metálicas</option>
-              <option value="Herrería Artística">Herrería Artística</option>
-              <option value="Mobiliario Personalizado">Mobiliario Personalizado</option>
-              <option value="Corte y Doblado de Metales">Corte y Doblado de Metales</option>
-              <option value="Mantenimiento y Reparación">Mantenimiento y Reparación</option>
+              <option value="Puerta">Puerta</option>
+              <option value="Ventana o reja">Ventana o reja</option>
+              <option value="Techo o estructura">Techo o estructura (aluzinc, calamina)</option>
+              <option value="Portón o baranda">Portón o baranda</option>
+              <option value="Mesa o mueble">Mesa o mueble</option>
+              <option value="Reparación">Reparación o refuerzo</option>
               <option value="Otro">Otro (Especificar en detalles)</option>
             </select>
           </div>
-          
+
           <div class="form-group">
             <label for="detalles" class="form-group__label">
-              <span class="material-symbols-outlined form-group__icon" aria-hidden="true">description</span>
+              <app-icon class="form-group__icon" name="chat-dots" />
               Detalles de tu Solicitud
             </label>
-            <textarea class="form-group__input" id="detalles" name="detalles" rows="4" [(ngModel)]="cotizacion.detalles" placeholder="Ej: Necesito una reja de seguridad de 2x3 metros para una ventana. Incluir medidas, materiales deseados y ubicación."></textarea>
+            <textarea class="form-group__input" id="detalles" name="detalles" rows="4" [(ngModel)]="cotizacion.detalles" placeholder="Ej: Puerta de 2.40 × 1 m, modelo PM 05, para mi casa en Huamanga…"></textarea>
           </div>
-        
+
         </fieldset>
 
         <button type="submit" class="btn btn--fire cta-button--whatsapp" [disabled]="!cotizacionForm.valid">
-                    Enviar Cotización por WhatsApp
+                    <app-icon name="whatsapp" /> Enviar cotización por WhatsApp
         </button>
       </form>
     </div>
@@ -66,15 +66,15 @@
       <p class="contact-alternatives__text">¿Prefieres contactarnos directamente? ¡Estamos listos para ayudarte!</p>
       <div class="contact-alternatives__buttons">
         <a href="tel:+51930929558" class="btn btn--ghost contact-button--call">
-          <span class="material-symbols-outlined" aria-hidden="true">phone</span>
+          <app-icon name="telephone-fill" />
           Llamar 930 929 558
         </a>
         <a href="tel:+51994988519" class="btn btn--ghost contact-button--call">
-          <span class="material-symbols-outlined" aria-hidden="true">phone</span>
+          <app-icon name="telephone-fill" />
           Llamar 994 988 519
         </a>
         <a href="tel:+51900048717" class="btn btn--ghost contact-button--call">
-          <span class="material-symbols-outlined" aria-hidden="true">phone</span>
+          <app-icon name="telephone-fill" />
           Llamar 900 048 717
         </a>
       </div>

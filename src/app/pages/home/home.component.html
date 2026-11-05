@@ -17,8 +17,8 @@
       <span #demoLine class="hero__demo-line" aria-hidden="true"></span>
       <p class="hero__sub">Puertas, ventanas, mesas, techos y estructuras de acero, hechas a mano con soldadura por electrodo en Ayacucho.</p>
       <div class="hero__cta">
-        <a class="btn btn--fire" routerLink="/contacto">Pide tu cotización gratis</a>
-        <a class="btn btn--ghost" href="https://wa.me/51930929558" target="_blank" rel="noopener">WhatsApp 930 929 558</a>
+        <a class="btn btn--fire" routerLink="/contacto">Pide tu cotización gratis <app-icon name="arrow-right" /></a>
+        <a class="btn btn--ghost" href="https://wa.me/51930929558" target="_blank" rel="noopener"><app-icon name="whatsapp" /> WhatsApp 930 929 558</a>
       </div>
       <span #status3d hidden></span>
     </div>
@@ -73,7 +73,7 @@
       @for (s of servicios; track s.titulo; let i = $index) {
         <article class="bento__card reveal" [class.bento__card--big]="i === 0" [style.transition-delay.ms]="i * 60">
           <span class="hud bento__tag">{{ s.tag }}</span>
-          <svg class="bento__icon" viewBox="0 0 48 48" aria-hidden="true"><path [attr.d]="s.icon" /></svg>
+          <app-icon class="bento__icon" [name]="s.icon" />
           <h3>{{ s.titulo }}</h3>
           <p>{{ s.texto }}</p>
           @if (i === 0) {
@@ -114,31 +114,13 @@
     <div>
       <p class="eyebrow">Quiénes somos</p>
       <h2 class="title-hot">Forjamos soluciones duraderas</h2>
-      <p class="muted">Con más de 10 años de experiencia, en Run Run nos dedicamos a la soldadura industrial, estructural y artística. Nuestro compromiso es firme: calidad, seguridad y precisión en cada trabajo.</p>
+      <p class="muted">Con más de 10 años de experiencia, en Run Run fabricamos puertas, ventanas, rejas, techos y estructuras de acero soldados con electrodo. Nuestro compromiso es firme: calidad, seguridad y precisión en cada trabajo.</p>
       <ul class="pillars">
         <li><b>Seguridad primero</b> en cada proceso y montaje.</li>
         <li><b>Calidad garantizada</b> con controles en cada etapa.</li>
         <li><b>Cumplimos plazos</b> y te mantenemos informado.</li>
       </ul>
-      <a class="btn btn--ghost" routerLink="/equipo">Conoce a nuestro equipo</a>
-    </div>
-  </section>
-
-  <!-- 6. Testimonios -->
-  <section class="section testimonials" aria-labelledby="t-clientes">
-    <p class="eyebrow">Clientes satisfechos</p>
-    <h2 id="t-clientes" class="title-hot">Nuestro trabajo habla por nosotros</h2>
-    <div class="marquee">
-      <div class="marquee__track">
-        @for (round of [0, 1]; track round) {
-          @for (t of testimonios; track $index) {
-            <figure class="quote" [attr.aria-hidden]="round === 1 ? 'true' : null">
-              <blockquote>“{{ t.texto }}”</blockquote>
-              <figcaption><img [src]="t.foto" alt="" width="40" height="40" loading="lazy" /> {{ t.autor }}</figcaption>
-            </figure>
-          }
-        }
-      </div>
+      <a class="btn btn--ghost" routerLink="/galeria">Ver trabajos reales</a>
     </div>
   </section>
 
@@ -149,7 +131,7 @@
       <h2 class="title-hot">¿Dónde encontrarnos?</h2>
       <p class="muted">Visítanos en el taller para conversar tu proyecto en persona. ¡Estamos listos para recibirte!</p>
       <p class="address">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <app-icon name="geo-alt-fill" />
         Ayacucho, Perú
       </p>
       <p class="muted tels">Llámanos: <a href="tel:+51930929558">930 929 558</a> · <a href="tel:+51994988519">994 988 519</a> · <a href="tel:+51900048717">900 048 717</a></p>
@@ -163,7 +145,7 @@
       } @else {
         <!-- El mapa solo se descarga si el visitante lo pide: ahorra ~1 MB de datos -->
         <button type="button" class="map__cargar" (click)="verMapa = true">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <app-icon name="geo-alt-fill" />
           Ver mapa del taller
         </button>
       }

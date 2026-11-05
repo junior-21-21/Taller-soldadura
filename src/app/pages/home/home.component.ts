@@ -1,3 +1,4 @@
+import { IconComponent } from '../../shared/icon/icon.component';
 import { Component, ElementRef, NgZone, OnDestroy, afterNextRender, viewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
@@ -18,14 +19,13 @@ interface Escena {
 }
 interface Servicio { icon: string; titulo: string; texto: string; tag: string; }
 interface Paso { titulo: string; texto: string; }
-interface Testimonio { foto: string; texto: string; autor: string; }
 
 /** Punto del cordón que el visitante suelda en el inicio */
 interface BeadDot { x: number; y: number; t: number; r: number; }
 
 @Component({
   selector: 'app-home',
-  imports: [RouterModule, BuildSceneComponent, ModelosComponent],
+  imports: [RouterModule, BuildSceneComponent, ModelosComponent, IconComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -70,12 +70,12 @@ export class HomeComponent implements OnDestroy {
   ];
 
   servicios: Servicio[] = [
-    { tag: 'Estructural', icon: 'M4 40 L24 10 L44 40 Z M24 10v30M14 25l10 15M34 25L24 40', titulo: 'Estructuras metálicas', texto: 'Diseño, fabricación y montaje de estructuras de acero para viviendas, almacenes y obras, con resistencia y seguridad garantizadas.' },
-    { tag: 'Electrodo · arco', icon: 'M8 40 L26 22 M24 16 l8 8 l-4 4 l-8 -8 z M36 4v3M36 17v3M28 12h3M41 12h3', titulo: 'Soldadura industrial', texto: 'Soldadura por arco con electrodo para estructuras y trabajos de gran escala.' },
-    { tag: 'Seguridad', icon: 'M10 4h28v40H10z M10 22h28M17 4v18M24 4v18M31 4v18', titulo: 'Herrería y portones', texto: 'Puertas, rejas, barandas y escaleras con diseño propio.' },
-    { tag: 'A medida', icon: 'M6 20h36M10 20v20M38 20v20M6 14h36M18 14c0-6 12-6 12 0', titulo: 'Mobiliario personalizado', texto: 'Muebles de metal con madera, vidrio u otros materiales.' },
-    { tag: 'Precisión', icon: 'M6 34h24l12 -12M6 26h20M34 8l6 6M30 12l6 6', titulo: 'Corte y doblado', texto: 'Planchas y perfiles cortados y doblados con exactitud.' },
-    { tag: 'Soporte', icon: 'M30 6a10 10 0 0 0-9 14L6 35l7 7 15-15a10 10 0 0 0 14-9l-6 6-6-2-2-6z', titulo: 'Mantenimiento y reparación', texto: 'Reparamos y reforzamos estructuras para alargar su vida útil.' },
+    { tag: 'Estructural', icon: 'building', titulo: 'Estructuras metálicas', texto: 'Diseño, fabricación y montaje de estructuras de acero para viviendas, almacenes y obras, con resistencia y seguridad garantizadas.' },
+    { tag: 'Electrodo · arco', icon: 'fire', titulo: 'Soldadura industrial', texto: 'Soldadura por arco con electrodo para estructuras y trabajos de gran escala.' },
+    { tag: 'Seguridad', icon: 'door-closed', titulo: 'Herrería y portones', texto: 'Puertas, rejas, barandas y escaleras con diseño propio.' },
+    { tag: 'A medida', icon: 'table', titulo: 'Mobiliario personalizado', texto: 'Muebles de metal con madera, vidrio u otros materiales.' },
+    { tag: 'Precisión', icon: 'rulers', titulo: 'Corte y doblado', texto: 'Planchas y perfiles cortados y doblados con exactitud.' },
+    { tag: 'Soporte', icon: 'wrench-adjustable', titulo: 'Mantenimiento y reparación', texto: 'Reparamos y reforzamos estructuras para alargar su vida útil.' },
   ];
 
   pasos: Paso[] = [
@@ -83,13 +83,6 @@ export class HomeComponent implements OnDestroy {
     { titulo: 'Diseño y cotización', texto: 'Te proponemos el diseño, el material y el precio claro, sin compromiso.' },
     { titulo: 'Fabricación', texto: 'Cortamos, armamos y soldamos en el taller con controles en cada etapa.' },
     { titulo: 'Instalación', texto: 'Llevamos e instalamos el trabajo, y lo dejamos listo para usar o pintar.' },
-  ];
-
-  testimonios: Testimonio[] = [
-    { foto: 'assets/img/cliente2.webp', texto: 'Su profesionalismo y atención al detalle superaron mis expectativas. El resultado fue impecable, como el metal más puro.', autor: 'Carlos M.' },
-    { foto: 'assets/img/cliente1.webp', texto: '¡Un trabajo excelente! La calidad es notoria y el trato fue muy amable desde el principio, cumpliendo los plazos.', autor: 'Ana R.' },
-    { foto: 'assets/img/cliente2.webp', texto: 'Totalmente recomendado. La obra se entregó a tiempo y con la mejor calidad en los acabados.', autor: 'Javier L.' },
-    { foto: 'assets/img/cliente1.webp', texto: 'Me encantó el diseño y la durabilidad de los productos. Sin duda volveré a contratarlos.', autor: 'Sofía P.' },
   ];
 
   constructor(private fx: WeldFxService, private host: ElementRef<HTMLElement>, private zone: NgZone) {

@@ -12,7 +12,7 @@
 .brand small { display: block; font: 500 .62rem/1.4 var(--font-body); letter-spacing: .2em; color: var(--fire-2); }
 
 .nav { display: flex; align-items: center; gap: 1.8rem; }
-.nav a:not(.btn) {
+.nav a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px;
   position: relative; text-decoration: none; color: var(--muted); font-weight: 500; font-size: .95rem;
   padding: .4rem 0; transition: color .2s cubic-bezier(.23, 1, .32, 1);
 }

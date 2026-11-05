@@ -66,6 +66,8 @@ h2.title-hot::after {
 }
 h2.title-hot.is-in::after, h2.title-hot:not(.split)::after { transform: scaleX(1); }
 .intro h2.title-hot::after, .final-cta h2.title-hot::after, .page-hero h2.title-hot::after { margin-inline: auto; transform-origin: center; }
+/* Títulos centrados: la línea de fuego también va centrada */
+[style*="text-align: center"] > h2.title-hot::after, .filtros-section h2.title-hot::after, .final-cta-galeria-section h2.title-hot::after, .services-grid-section h2::after, .testimonials h2.title-hot::after, .location-center h2.title-hot::after { margin-inline: auto; transform-origin: center; }
 
 .eyebrow {
   font: 600 .8rem/1 var(--font-body);
@@ -153,3 +155,14 @@ h2.title-hot.is-in::after, h2.title-hot:not(.split)::after { transform: scaleX(1
   .embers, .btn--fire::after { display: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Guía de interfaz web (Vercel): toque rápido, títulos sin palabras sueltas, salto al contenido */
+html { -webkit-tap-highlight-color: rgba(255, 106, 0, .15); }
+a, button, select, input, textarea, label { touch-action: manipulation; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+[id] { scroll-margin-top: 90px; }
+.skip { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: .8rem 1.2rem; border-radius: 10px; background: var(--text); color: #fff; font-weight: 600; text-decoration: none; transform: translateY(-160%); transition: transform .2s var(--ease-out); }
+.skip:focus-visible { transform: none; }
+/* Zonas táctiles de al menos 44 px */
+.btn, .btn--sm { min-height: 44px; }

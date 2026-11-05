@@ -1,19 +1,19 @@
 .servicios-hero {
   position: relative; text-align: center; padding: 110px 16px 90px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, .78), var(--bg)),
-    radial-gradient(ellipse at 50% 120%, rgba(255, 90, 0, .35), transparent 60%),
-    url('parallax-background.jpg') center / cover no-repeat;
-  border-bottom: 1px solid var(--line);
+    radial-gradient(ellipse at 50% 120%, rgba(255, 90, 0, .4), transparent 60%),
+    linear-gradient(180deg, rgba(18, 11, 6, .82), rgba(18, 11, 6, .9)),
+    url('fondo-servicios.webp') center / cover no-repeat, #1a120c;
+  color: #fff;
 }
 .servicios-hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); margin: 0 0 1rem; }
-.servicios-hero p { color: var(--muted); max-width: 60ch; margin: 0 auto; font-size: 1.1rem; }
+.servicios-hero p { color: rgba(255, 255, 255, .85); max-width: 60ch; margin: 0 auto; font-size: 1.1rem; }
 
 .services-grid-section, .why-us-section { max-width: 1200px; margin: 0 auto; padding: 90px clamp(16px, 4vw, 48px); }
 .services-grid-section h2, .why-us-section h2 { font: 700 clamp(2rem, 4.4vw, 3.2rem)/1.1 var(--font-display); text-transform: uppercase; margin: 0 0 .5rem; }
 .subtitle { color: var(--muted); margin: 0 0 2.5rem; }
 .services-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.service-icon svg { width: 44px; height: 44px; margin-bottom: 1rem; fill: none; stroke: var(--fire-2); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.service-icon { font-size: 38px; color: var(--fire-2); margin-bottom: 1rem; }
 .service-card h3 { font-size: 1.3rem; text-transform: uppercase; margin: 0 0 .5rem; }
 .service-card p { color: var(--muted); margin: 0; }
 
@@ -26,3 +26,4 @@
 .final-cta-section { text-align: center; padding: 80px 16px 110px; }
 .final-cta-section h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); text-transform: uppercase; margin: 0 0 .5rem; }
 .final-cta-section p { color: var(--muted); margin: 0 0 2rem; }
+.servicios-hero .eyebrow { color: #ffb347; }

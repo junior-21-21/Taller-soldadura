@@ -5,7 +5,7 @@
 .defs { position: absolute; }
 
 .tabs { display: inline-flex; padding: 4px; gap: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
-.tab {
+.tab { min-height: 44px;
   font: 600 .9rem/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase;
   padding: .7rem 1.2rem; border: 0; border-radius: 999px; cursor: pointer;
   color: var(--muted); background: transparent;

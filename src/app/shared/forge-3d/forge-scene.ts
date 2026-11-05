@@ -36,7 +36,8 @@ export function createForge(container: HTMLElement, opts: ForgeOptions = {}): { 
   const lowPower = (navigator.hardwareConcurrency || 4) <= 4 || matchMedia('(max-width: 700px)').matches;
   const MAX_SPARKS = lowPower ? 700 : 1600;
 
-  const renderer = new THREE.WebGLRenderer({ antialias: !lowPower, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ antialias: !lowPower, alpha: true, powerPreference: 'high-performance' });
+  renderer.setClearColor(0x000000, 0);
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, lowPower ? 1.25 : 1.75));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.0;
@@ -46,9 +47,8 @@ export function createForge(container: HTMLElement, opts: ForgeOptions = {}): { 
 
   const scene = new THREE.Scene();
   // Fondo claro, por debajo del umbral del brillo para que no se queme
-  const bg = new THREE.Color(0xf3efea);
-  scene.background = bg;
-  scene.fog = new THREE.Fog(bg, 34, 70);
+  // Fondo transparente: detrás se ve la foto del taller (la niebla oscurece lo lejano)
+  scene.fog = new THREE.Fog(0x1a120c, 30, 66);
   const pmrem = new THREE.PMREMGenerator(renderer);
   const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environment = envTex;
@@ -89,7 +89,7 @@ export function createForge(container: HTMLElement, opts: ForgeOptions = {}): { 
   // ---------- Piso del taller ----------
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(90, 90),
-    new THREE.MeshStandardMaterial({ color: 0xe7e0d8, roughness: 0.85, metalness: 0 }),
+    new THREE.ShadowMaterial({ opacity: 0.35 }),
   );
   floor.rotation.x = -Math.PI / 2;
   floor.receiveShadow = true;

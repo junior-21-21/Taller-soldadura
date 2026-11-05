@@ -2,58 +2,49 @@
   <section class="galeria-hero-parallax">
     <div class="hero-content-galeria">
       <p class="eyebrow">Galería de trabajos</p>
-      <h1 class="title-hot">El metal es nuestro lenguaje.</h1>
-      <p>Nuestra galería es un lienzo donde la ingeniería se une a la precisión. Descubre el arte y la fuerza en cada soldadura.</p>
-    </div>
-  </section>
-  
-  <section class="filtros-section">
-    <h2 class="title-hot">Portafolio de proyectos</h2>
-    <div class="filtros-container">
-      <button 
-        class="filtro-button" 
-        [class.active]="filtroActivo === 'Todos'"
-        (click)="filtrarProyectos('Todos')">Todos</button>
-      <button 
-        class="filtro-button" 
-        [class.active]="filtroActivo === 'Estructuras'"
-        (click)="filtrarProyectos('Estructuras')">Estructuras</button>
-      <button 
-        class="filtro-button" 
-        [class.active]="filtroActivo === 'Herrería Artística'"
-        (click)="filtrarProyectos('Herrería Artística')">Herrería Artística</button>
-      <button 
-        class="filtro-button" 
-        [class.active]="filtroActivo === 'Mobiliario'"
-        (click)="filtrarProyectos('Mobiliario')">Mobiliario</button>
-      <button 
-        class="filtro-button" 
-        [class.active]="filtroActivo === 'Reparaciones'"
-        (click)="filtrarProyectos('Reparaciones')">Reparaciones</button>
+      <h1 class="title-hot">Trabajos hechos en nuestro taller</h1>
+      <p>Fotos reales de puertas que fabricamos e instalamos en Ayacucho, soldadas con electrodo.</p>
     </div>
   </section>
 
-  <section class="proyectos-grid">
-    <div 
-      class="proyecto-card" 
-      *ngFor="let proyecto of proyectosFiltrados; trackBy: trackById"
-      (click)="verDetalles(proyecto)">
-      
-      <div class="proyecto-imagen-container">
-        <img [src]="proyecto.imagen" [alt]="'Imagen de ' + proyecto.titulo">
-      </div>
-      
-      <div class="proyecto-info">
-        <span class="proyecto-categoria">{{ proyecto.categoria }}</span>
-        <h3>{{ proyecto.titulo }}</h3>
-        <p>{{ proyecto.descripcion }}</p>
-      </div>
+  <section class="filtros-section" aria-labelledby="t-port">
+    <h2 id="t-port" class="title-hot">Portafolio</h2>
+    <div class="filtros-container" role="group" aria-label="Filtrar trabajos">
+      @for (f of filtros; track f.id) {
+        <button type="button" class="filtro-button" [class.active]="filtro() === f.id" [attr.aria-pressed]="filtro() === f.id" (click)="filtro.set(f.id)">{{ f.nombre }}</button>
+      }
     </div>
   </section>
+
+  <ul class="proyectos-grid">
+    @for (p of visibles(); track p.img; let i = $index) {
+      <li class="proyecto-card">
+        <button type="button" class="proyecto-imagen-container" (click)="abierta.set(p)" [attr.aria-label]="'Ver grande ' + p.nombre + ' ' + p.codigo">
+          <img [src]="'assets/img/puertas/' + p.img + '.webp'" [alt]="'Puerta ' + p.nombre + ' fabricada por Run Run'"
+            width="300" height="640" [attr.loading]="i < 3 ? 'eager' : 'lazy'" decoding="async" />
+        </button>
+        <div class="proyecto-info">
+          <span class="proyecto-categoria">{{ p.codigo }}</span>
+          <h3>{{ p.nombre }}</h3>
+          @if (p.detalle) { <p>{{ p.detalle }}</p> }
+        </div>
+      </li>
+    }
+  </ul>
 
   <section class="final-cta-galeria-section">
-    <h2 class="title-hot">Lleva tu visión a la realidad.</h2>
-    <p>Si te ha gustado lo que has visto, contáctanos hoy mismo y haz que tu proyecto se vuelva una realidad.</p>
-    <a routerLink="/contacto" class="btn btn--fire">Solicita tu Cotización</a>
+    <h2 class="title-hot">¿Te gustó alguno?</h2>
+    <p>Mira los 73 modelos con su precio, o pídenos tu propio diseño.</p>
+    <div class="cta-row">
+      <a routerLink="/puertas" class="btn btn--fire">Ver catálogo con precios</a>
+      <a routerLink="/contacto" class="btn btn--ghost">Pedir cotización</a>
+    </div>
   </section>
+
+  @if (abierta(); as p) {
+    <div class="visor" role="dialog" aria-modal="true" [attr.aria-label]="p.codigo" (click)="abierta.set(null)">
+      <img [src]="'assets/img/puertas/' + p.img + '.webp'" [alt]="'Puerta ' + p.nombre + ' ' + p.codigo" />
+      <button type="button" class="cerrar" aria-label="Cerrar">×</button>
+    </div>
+  }
 </main>
